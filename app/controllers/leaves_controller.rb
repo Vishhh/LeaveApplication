@@ -1,7 +1,8 @@
 class LeavesController < ApplicationController
   def index
     if current_user
-      @leaves = Leave.all
+       @leaves = Leave.all
+      # @leaves = Leave.where(:user_id => current_user) && Leave.where(:employee_id => current_employee)
     elsif current_employee
       @leaves = Leave.where(:employee_id => current_employee)
     end
