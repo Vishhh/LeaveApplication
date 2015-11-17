@@ -5,14 +5,16 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
-
 <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
 </head>
+
+<body>
+<section id= "container">
 <header>
-<a href="" class="logo" >Leave <span>Application</span> <div class="small">(Alfa!)</div></a>
+<a href="" class="logo">Leave <span>Application</span> <div class="small">(Alfa!)</div></a>
   <div class= "top-nav">
     <ul class="nav pull-right top-menu">
-      <!-- <li><input type="text" class="form-control search"></li> -->
+      <li><input type="text" class="form-control search"></li>
       <% if user_signed_in? %>
         <li class="dropdown">          
           <a data-toggle="dropdown" class="dropdown-toggle current_user_nav" href="#">
@@ -46,19 +48,18 @@
     </ul>
   </div>
 </header>
-<body>
-<aside><br/><br/><br/>
-  <div><ul><li>
+<aside><br/><br/><br/><div>
+  <ul><li>
     <a href="#">
       <i class="fa fa-dashboard"></i>
       <span>Dashboard</span>
     </a></li>
-	    <% if current_user %>
-	    <%= render 'layouts/admin_menu' %>
-	    <% elsif current_employee %>
-	    <%= render 'layouts/employee_menu' %>
-	    <%end%></ul>
-  </div>
+    <% if current_user %>
+    	<%= render 'layouts/admin_menu' %>
+    <% elsif current_employee %>
+    	<%= render 'layouts/employee_menu' %>
+    <%end%>
+   </ul> 
 </aside>
     <section id="main-content">
       <section class="wrapper site-min-height">
@@ -71,7 +72,9 @@
           <%= yield %>
       </section>
     </section>
-
+</div>
+</aside>
+</section>
 <div class= "text-center">
 <% if user_signed_in? %>
  <div class="btn btn-default" ><%= link_to 'Sign out', destroy_user_session_path ,:method => 'delete' %></div></br></br>
@@ -82,9 +85,5 @@
 <li><%= link_to "Edit Password",edit_employee_registration_path %></li>
 <% end %>
 </div>
-
-
-
-
 </body>
 </html>
