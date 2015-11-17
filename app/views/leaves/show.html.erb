@@ -28,10 +28,12 @@
 
   <%= @leave.leave_to - @leave.leave_from %>
 <br/><br/><br/>
+<%if current_user %>
 <%= form_for @leave do |leave|%>
 <h3>
 <%= leave.check_box :approved %><br/><%= leave.submit "Approved" %></h3>
 <% end %>
 </div>
-
+<%end%>
+<%= link_to "back", leaves_path%>
 </p>

@@ -1,6 +1,10 @@
 class LeavesController < ApplicationController
   def index
-   @leaves = Leave.where(:user_id => current_user)
+    if current_user
+      @leaves = Leave.all
+    elsif current_employee
+      @leaves = Leave.where(:employee_id => current_employee)
+    end
   end
 
   def new
@@ -10,6 +14,11 @@ class LeavesController < ApplicationController
 
   def create
     @leave = Leave.new(leave_params)
+    if current_user
+      @leave.user_id = current_user.id
+    else
+      @leave.employee_id = current_employee.id
+    end
     if @leave.save
       redirect_to @leave
     else
