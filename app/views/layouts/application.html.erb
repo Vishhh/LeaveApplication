@@ -6,7 +6,43 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
+<header>
+<a href="" class="logo" >Leave <span>Application</span> <div class="small">(Alfa!)</div></a>
+  <div class= "top-nav">
+    <ul class="nav pull-right top-menu">
+      <!-- <li><input type="text" class="form-control search"></li> -->
+      <% if user_signed_in? %>
+        <li class="dropdown">          
+          <a data-toggle="dropdown" class="dropdown-toggle current_user_nav" href="#">
+          <span class="username"></span>
+          <b class="caret"></b></a>
+          <ul class="dropdown-menu extended logout">
+          <div class="log-arrow-up"></div>
+            <li><%#= link_to(edit_user_path(current_user.id)) do %>
+              <i class="fa fa-cog"></i> Setting<%# end %>
+            </li>
+            <li><%= link_to('Logout', destroy_user_session_path, :method => :delete) %>
+            </li>
+          </ul>
+        </li>
+      <%end%>
+    </ul>
+  </div>
+</header>
 <body>
+<aside><br/><br/><br/>
+  <div><ul><li>
+    <a href="#">
+      <i class="fa fa-dashboard"></i>
+      <span>Dashboard</span>
+    </a></li>
+	    <% if current_user %>
+	    <%= render 'layouts/admin_menu' %>
+	    <% elsif current_employee %>
+	    <%= render 'layouts/employee_menu' %>
+	    <%end%></ul>
+  </div>
+</aside>
 
        <p class="notice"><%= notice %></p>
        <p class="alert"><%= alert %></p>
