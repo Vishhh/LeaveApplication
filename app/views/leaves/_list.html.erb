@@ -26,7 +26,7 @@
 				<%= link_to leafe_path(leave), :class => "btn btn-primary btn-xs" do %>
 				   <i class="fa fa-folder"></i> View
 				<% end %>
-				
+				<% if current_user %>
 					<%= link_to edit_leafe_path(leave), :class => "btn btn-info btn-xs" do %>
 					   <i class="fa fa-pencil"></i> Edit
 					<% end %>
@@ -34,6 +34,7 @@
 					<%= link_to leafe_path(leave), :class => 'btn btn-danger btn-xs', method: :delete, data: { confirm: 'Are you sure?' } do %>
 					   <i class="fa fa-trash-o"></i> Delete
 					<% end %>
+					<%end%>
 			</td>
 			</tr>
 			<% end %>

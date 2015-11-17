@@ -8,11 +8,13 @@
 			</div>
 			<div class="value">
 				<h1 class="count">
+				<% if current_user || current_employee %>
 				<% total_leave=0 %>
 				<% @leaves.each do |leave| %>
 				<% total_leave = total_leave + (leave.leave_to - leave.leave_from) %>
 				<% end %>
 				<%= total_leave %>
+				<% end %>
 				<%#= calculate_leave %>
 				<%#= current_user.calculate_unpaid_balance %>
 				</h1>
@@ -27,14 +29,15 @@
 			</div>
 			<div class="value">
 				<h1 class=" count2">
-						
+				<% if current_user || current_employee %>		
 				<% pending_leaves = 0 %>
 				<% @leaves.each do |leave| %>
-					<% if leave.ok == false %>
+					<% if leave.approved == false %>
 						<% pending_leaves = pending_leaves + (leave.leave_to - leave.leave_from) %>
 					<% end%>
 				<%end%>
 				<%= pending_leaves %></h1>
+				<%end%>
 				<p>Pending Leave</p>
 			</div>
 		</section>
