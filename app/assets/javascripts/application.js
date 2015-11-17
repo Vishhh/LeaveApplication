@@ -7,10 +7,39 @@
 // It's not advisable to add code directly here, but if you do, it'll appear at the bottom of the
 // compiled file.
 //
-// Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
+// Read Sprockets README (https://github.com/sstephenson/sprockets#sprockets-directives) for details
 // about supported directives.
 //
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
-//= require_tree .
+// require turbolinks
+// require filterrific/filterrific-jquery
+// require jquery_nested_form
+//= require bootstrap
+//= require bootstrap-switch
+
+// require all-chartjs
+//= require count
+
+
+//= require prism
+// require ace/ace
+// require ace/worker-html
+//= require appscripts
+
+//= require jquery.validate.min
+//= require form-validation-script
+
+//= require jquery.scrollTo.min
+//= require jquery.nicescroll
+//= require respond.min
+
+
+//= require slidebars.min
+//= require common-scripts
+
+//= require jquery.sparkline
+//= require sparkline-chart
+
+//= require jquery-easy-pie-chart/jquery.easy-pie-chart
+//= require easy-pie-chart

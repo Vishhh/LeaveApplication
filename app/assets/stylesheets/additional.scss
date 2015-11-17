@@ -1,0 +1,39 @@
+a.logo {
+    font-size: 14px;
+}
+
+.current_user_nav{
+	img{
+		width: 30px;
+	}
+}
+
+.dropdown-menu.extended.logout {
+	> li{
+		width: 100%;
+	}
+}
+
+.dark-heading{
+	background: #2A3542 none repeat scroll 0% 0%;
+}
+
+.form-signin a.white-font{
+	color: #fff;
+}
+
+.round-image{
+	width: 110px;
+	height: 110px;
+	border-radius: 50%;
+	overflow: hidden;
+	margin: 0px auto;
+	border: 5px solid rgba(0, 0, 0, 0.11);
+}
+
+.registration-upload-field{
+	margin-top: 15px;
+	margin-bottom: 15px;
+}
+
+img{max-width: 100%;}

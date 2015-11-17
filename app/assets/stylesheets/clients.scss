@@ -1,0 +1,58 @@
+// Place all the styles related to the clients controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.clients{
+	.menu-item-client a{
+		background: #35404d;
+		color: #fff;
+		display: block;
+		border-radius: 4px;
+		-webkit-border-radius: 4px;
+		-webkit-transition: all 0.3s ease;
+		-moz-transition: all 0.3s ease;
+		-o-transition: all 0.3s ease;
+		-ms-transition: all 0.3s ease;
+		transition: all 0.3s ease;
+	}
+
+	.menu-item-client .sub{
+		display: block !important;
+	}
+}
+
+.search-label{
+	padding-top: 8px;
+	text-align: right;
+}
+
+.search-row{
+	padding-bottom: 15px;
+}
+
+.snippets{
+	.menu-item-snippet a{
+		background: #35404d;
+		color: #fff;
+		display: block;
+		border-radius: 4px;
+		-webkit-border-radius: 4px;
+		-webkit-transition: all 0.3s ease;
+		-moz-transition: all 0.3s ease;
+		-o-transition: all 0.3s ease;
+		-ms-transition: all 0.3s ease;
+		transition: all 0.3s ease;
+	}
+
+	.menu-item-snippet .sub{
+		display: block !important;
+	}
+}
+
+.search-label{
+	padding-top: 8px;
+	text-align: right;
+}
+
+.search-row{
+	padding-bottom: 15px;
+}

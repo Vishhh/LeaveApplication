@@ -5,6 +5,8 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
 </head>
 <header>
 <a href="" class="logo" >Leave <span>Application</span> <div class="small">(Alfa!)</div></a>
@@ -43,21 +45,31 @@
 	    <%end%></ul>
   </div>
 </aside>
-
-       <p class="notice"><%= notice %></p>
-       <p class="alert"><%= alert %></p>
+    <section id="main-content">
+      <section class="wrapper site-min-height">
+          <% if notice %>
+          <p class="alert alert-success"><%= notice %></p>
+          <% end %>
+          <% if alert %>
+          <p class="alert alert-danger"><%= alert %></p>
+          <% end %>
+          <%= yield %>
+      </section>
+    </section>
 
 <div class= "text-center">
- <% if user_signed_in? %>
-         <div class="btn btn-default" ><%= link_to 'Sign out', destroy_user_session_path ,:method => 'delete' %></div></br></br>
-         <div class="btn btn-default" ><%= link_to "Edit Password",edit_user_registration_path %></div>
+<% if user_signed_in? %>
+ <div class="btn btn-default" ><%= link_to 'Sign out', destroy_user_session_path ,:method => 'delete' %></div></br></br>
+ <div class="btn btn-default" ><%= link_to "Edit Password",edit_user_registration_path %></div>
 <% end %>
- <% if employee_signed_in? %>
-        <li><%= link_to 'Sign out', destroy_employee_session_path ,:method => 'delete' %></li>
-        <li><%= link_to "Edit Password",edit_employee_registration_path %></li>
+<% if employee_signed_in? %>
+<li><%= link_to 'Sign out', destroy_employee_session_path ,:method => 'delete' %></li>
+<li><%= link_to "Edit Password",edit_employee_registration_path %></li>
 <% end %>
 </div>
-<%= yield %>
+
+
+
 
 </body>
 </html>

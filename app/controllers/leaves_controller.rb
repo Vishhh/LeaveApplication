@@ -5,12 +5,11 @@ class LeavesController < ApplicationController
 
   def new
     @leave = Leave.new
-    @leave.generate_leave_number(current_user)
+    # @leave.generate_leave_number(current_user)
   end
 
   def create
     @leave = Leave.new(leave_params)
-    @leave.user = current_user
     if @leave.save
       redirect_to @leave
     else

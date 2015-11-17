@@ -1,0 +1,56 @@
+<!--state overview start-->
+<div class= "col-md-10">
+<div class="row state-overview">
+	<div class="col-lg-4 col-sm-4">
+		<section class="panel">
+			<div class="symbol terques">
+				<i class="fa fa-credit-card"></i>
+			</div>
+			<div class="value">
+				<h1 class="count">
+				<% total_leave=0 %>
+				<% @leaves.each do |leave| %>
+				<% total_leave = total_leave + (leave.leave_to - leave.leave_from) %>
+				<% end %>
+				<%= total_leave %>
+				<%#= calculate_leave %>
+				<%#= current_user.calculate_unpaid_balance %>
+				</h1>
+				<p>Total Leave</p>
+			</div>
+		</section>
+	</div>
+	<div class="col-lg-4 col-sm-4">
+		<section class="panel">
+			<div class="symbol red">
+				<i class="fa fa-folder-open"></i>
+			</div>
+			<div class="value">
+				<h1 class=" count2">
+						
+				<% pending_leaves = 0 %>
+				<% @leaves.each do |leave| %>
+					<% if leave.ok == false %>
+						<% pending_leaves = pending_leaves + (leave.leave_to - leave.leave_from) %>
+					<% end%>
+				<%end%>
+				<%= pending_leaves %></h1>
+				<p>Pending Leave</p>
+			</div>
+		</section>
+	</div>
+	<div class="col-lg-4 col-sm-4">
+		<section class="panel">
+			<div class="symbol yellow">
+				<i class="fa fa-bar-chart-o"></i>
+			</div>
+			<div class="value">
+				<h1 class=" count3">
+					$<%#= current_user.calculate_paid_balance %>
+				</h1>
+				<p>(Last 30 Days)</p>
+			</div>
+		</section>
+	</div>
+</div>
+</div>

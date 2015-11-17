@@ -1,0 +1,65 @@
+ <%= form_for @leave do |f| %>
+  <section>
+   <div class= "col-md-10">
+    <div class="panel panel-primary">
+      <div class="panel-body">
+        <div class="row invoice-list">
+          <div class="text-center corporate-id">
+          </div>
+          <div class="col-lg-4 col-sm-4">
+           <!--  <h4>Employee</h4> -->
+            <%#= f.select :employee_id, {:class => 'form-control m-bot15'} %>
+          </div>
+          <div class="col-md-3 form-group pull-right">
+            <label class= "control-label">Leave Number</label>
+            <%= f.text_field :leave_number, :class =>"form-control" %>
+          </div>
+        </div>
+        
+        <table class="table table-striped table-hover">
+          <thead>
+            <tr>
+              <th>Task</th>
+              <th>Leave From</th>
+              <th>Leave To</th>
+            </tr>
+          </thead>
+          
+          <tbody id="tbody">
+            <tr>
+              <td label class="col-sm-2 control-label">
+                <%= f.text_field :task, :class => 'form-control'%>
+              </td>
+
+              <td label class="col-sm-1 control-label">
+                <%= f.date_field :leave_from, :class => 'form-control'%>
+              </td>
+
+              <td label class="col-sm-1 control-label">
+                <%= f.date_field :leave_to, :class => 'form-control'%>
+              </td>
+            </tr>
+
+            </tr>
+          </tbody> 
+
+        </table> <br/><br/><br/>          
+        <div class="text-center invoice-btn">
+          <%= f.submit 'Apply', :class => 'btn btn-success btn-lg' %>
+        </div>
+      </div>
+    </div></div>
+  </section>
+    <% end %>
+
+<script>
+  window.NestedFormEvents.prototype.insertFields = function(content, assoc, link) {
+    var $tr = $(link).parent().find("#tbody");
+    return $tr.append(content);
+  }
+</script>
+<script type="text/javascript">
+
+
+</script>
+

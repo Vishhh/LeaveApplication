@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151117093908) do
+ActiveRecord::Schema.define(version: 20151117101903) do
 
   create_table "employees", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -32,8 +32,17 @@ ActiveRecord::Schema.define(version: 20151117093908) do
   add_index "employees", ["reset_password_token"], name: "index_employees_on_reset_password_token", unique: true
 
   create_table "leaves", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
+    t.boolean  "approved",     default: false
+    t.string   "task"
+    t.date     "leave_from"
+    t.date     "leave_to"
+    t.integer  "user_id"
+    t.integer  "employee_id"
+    t.string   "status"
+    t.string   "total"
+    t.integer  "leave_number"
   end
 
   create_table "users", force: :cascade do |t|
