@@ -9,7 +9,11 @@ class LeavesController < ApplicationController
 
   def new
     @leave = Leave.new
-    # @leave.generate_leave_number(current_user)
+    if current_user
+      @leave.generate_leave_number(current_user)
+    else
+      @leave.generate_leave_number(current_employee)
+    end
   end
 
   def create

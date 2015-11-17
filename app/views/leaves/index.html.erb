@@ -1,19 +1,19 @@
 <div class="row">
   <div class="col-lg-12">
-      <% if current_user %>
-        <%= render "stats" %>
-      <% elsif current_employee %>
-        <%= render "stats" %>
-      <% end %>
-      <section class="panel">
-        <div class="panel-body">
-          <% if current_user %>
-              <%= render "filter" %>
-          <% elsif current_employee %>
-              <%= render "filter" %>
-          <% end %>
-          <%= render 'list'%>  
-        </div> 
-      </section>
+    <% if current_user %>
+      <%= render "stats" %>
+    <% elsif current_employee %>
+      <%= render "stats" %>
+    <% end %>
+    <section class="panel">
+      <div class="panel-body">
+        <% if current_user %>
+          <%= render "filter" %>
+        <% elsif current_employee %>
+          <%= render "filter" %>
+        <% end %>
+        <%= render 'list'%>  
+      </div> 
+    </section>
   </div>
 </div>

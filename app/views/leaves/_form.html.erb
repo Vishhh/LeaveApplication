@@ -1,14 +1,11 @@
- <%= form_for @leave do |f| %>
-  <section>
-   <div class= "col-md-10">
+<%= form_for @leave do |f| %>
+<section>
+  <div class= "col-md-10">
     <div class="panel panel-primary">
       <div class="panel-body">
         <div class="row invoice-list">
-          <div class="text-center corporate-id">
-          </div>
           <div class="col-lg-4 col-sm-4">
-           <!--  <h4>Employee</h4> -->
-            <%#= f.select :employee_id, {:class => 'form-control m-bot15'} %>
+           <%#= @leave.employee_id%>
           </div>
           <div class="col-md-3 form-group pull-right">
             <label class= "control-label">Leave Number</label>
@@ -39,18 +36,16 @@
                 <%= f.date_field :leave_to, :class => 'form-control'%>
               </td>
             </tr>
-
-            </tr>
           </tbody> 
-
-        </table> <br/><br/><br/>          
+        </table><br/><br/><br/>          
         <div class="text-center invoice-btn">
           <%= f.submit 'Apply', :class => 'btn btn-success btn-lg' %>
         </div>
       </div>
-    </div></div>
-  </section>
-    <% end %>
+    </div>
+  </div>
+</section>
+<% end %>
 
 <script>
   window.NestedFormEvents.prototype.insertFields = function(content, assoc, link) {
@@ -58,8 +53,3 @@
     return $tr.append(content);
   }
 </script>
-<script type="text/javascript">
-
-
-</script>
-
