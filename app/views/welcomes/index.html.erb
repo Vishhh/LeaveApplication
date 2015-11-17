@@ -1,2 +1,6 @@
-<h1>Welcomes#index</h1>
-<p>Find me in app/views/welcomes/index.html.erb</p>
+<div class= "text-center">
+<% if !user_signed_in?  %>
+<div class="btn btn-default"><%= link_to 'USER SIGN IN', user_session_path  %></div></br></br>
+<div class="btn btn-default"><%= link_to "EMPLOYEE SIGN IN",employee_session_path %></div>
+<%end%>
+</div>
