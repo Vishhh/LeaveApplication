@@ -1,4 +1,16 @@
 Rails.application.routes.draw do
+  get 'leaves/index'
+
+  get 'leaves/edit'
+
+  get 'leaves/create'
+
+  get 'leaves/update'
+
+  get 'leaves/destroy'
+
+  get 'leaves/show'
+
   get 'welcomes/index'
 
   devise_for :employees
