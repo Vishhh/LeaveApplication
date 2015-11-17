@@ -1,5 +1,6 @@
 class LeavesController < ApplicationController
   def index
+    @leaves = current_user.leaves
   end
 
   def edit

@@ -1,15 +1,5 @@
 Rails.application.routes.draw do
-  get 'leaves/index'
 
-  get 'leaves/edit'
-
-  get 'leaves/create'
-
-  get 'leaves/update'
-
-  get 'leaves/destroy'
-
-  get 'leaves/show'
 
   get 'welcomes/index'
 
@@ -19,6 +9,7 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
   resources :employees
   resources :users
+  resources :leaves
   # You can have the root of your site routed with "root"
    root 'welcomes#index'
 
