@@ -5,7 +5,7 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
-  
+
 <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
 </head>
 <header>
@@ -16,7 +16,7 @@
       <% if user_signed_in? %>
         <li class="dropdown">          
           <a data-toggle="dropdown" class="dropdown-toggle current_user_nav" href="#">
-          <span class="username"></span>
+          <span class="username"><%= current_user.email %></span>
           <b class="caret"></b></a>
           <ul class="dropdown-menu extended logout">
           <div class="log-arrow-up"></div>
@@ -24,6 +24,21 @@
               <i class="fa fa-cog"></i> Setting<%# end %>
             </li>
             <li><%= link_to('Logout', destroy_user_session_path, :method => :delete) %>
+            </li>
+          </ul>
+        </li>
+      <%end%>
+      <% if employee_signed_in? %>
+        <li class="dropdown">          
+          <a data-toggle="dropdown" class="dropdown-toggle current_user_nav" href="#">
+          <span class="username"><%= current_employee.email %></span>
+          <b class="caret"></b></a>
+          <ul class="dropdown-menu extended logout">
+          <div class="log-arrow-up"></div>
+            <li><%#= link_to(edit_user_path(current_user.id)) do %>
+              <i class="fa fa-cog"></i> Setting<%# end %>
+            </li>
+            <li><%= link_to('Logout', destroy_employee_session_path, :method => :delete) %>
             </li>
           </ul>
         </li>

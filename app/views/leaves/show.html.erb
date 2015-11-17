@@ -1,39 +1,37 @@
-<section>
-    <div class="panel panel-primary">
-      <div class="panel-body">
-      <div class="row invoice-list">
-          <div class="col-lg-4 col-sm-4">
-            <p>
-              <strong>Task:</strong>
-              <%= @leave.task %>
-            </p>
-        </div>
-        <div class="col-lg-4 col-sm-4">
-          <p>
+<div class="panel panel-primary">
+  <div class="panel-body">
+    <div class="row invoice-list">
+      <div class="col-lg-4 col-sm-4">
+        <p>
+          <strong>Task:</strong>
+          <%= @leave.task %>
+        </p>
+      </div>
+      <div class="col-lg-4 col-sm-4">
+        <p>
           <strong>Leave From:</strong>
           <%= @leave.leave_from %>
         </p>
       </div>
       <div class="col-lg-4 col-sm-4">
-      <p>
-        <strong>Leave To:</strong>
-        <%= @leave.leave_to %>
-      </p>
+        <p>
+          <strong>Leave To:</strong>
+          <%= @leave.leave_to %>
+        </p>
+      </div>
     </div>
   </div>
 </div>
-<p>
-<div class ="text-center">
-<strong>Calculated days of leave</strong>
-
-  <%= @leave.leave_to - @leave.leave_from %>
-<br/><br/><br/>
-<%if current_user %>
-<%= form_for @leave do |leave|%>
-<h3>
-<%= leave.check_box :approved %><br/><%= leave.submit "Approved" %></h3>
-<% end %>
-</div>
-<%end%>
-<%= link_to "back", leaves_path%>
-</p>
+  <p>
+  <div class ="text-center">
+    <strong>Calculated days of leave</strong>
+    <%= @leave.leave_to - @leave.leave_from %><br/><br/><br/>
+      <%if current_user %>
+        <%= form_for @leave do |leave|%>
+        <h3><%= leave.check_box :approved %><br/>
+        <%= leave.submit "Approved" %></h3>
+        <% end %>
+      <%end%>
+    <%= link_to "back", leaves_path%>
+  </div>
+  </p>

@@ -2,6 +2,7 @@
 	<table class="display table table-bordered table-striped">
 		<thead>
 			<tr>
+				<th>Employee ID</th>
 				<th>Leave Count</th>
 				<th>Reason</th>
 				<th>Date Created</th>
@@ -13,6 +14,9 @@
 		<tbody>
 			<% @leaves.each do |leave| %>
 			<tr>
+				<td><% if current_user %>
+				<%= leave.employee_id %>
+				<% end %></td>
 				<td><%= leave.leave_to - leave.leave_from %></td>
 				<td><%= leave.task %></td>
 				<td><%= leave.created_at.strftime("%b. %d %Y") %></td>
