@@ -1,0 +1,99 @@
+<div class="container">
+    <!--tab nav start-->
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put, class: '' }) do |f| %>
+    <%= devise_error_messages! %>
+    <section class="panel">
+        <header class="panel-heading tab-bg-dark-navy-blue ">
+            <ul class="nav nav-tabs">
+                <li class="active">
+                    <a data-toggle="tab" href="#profile">Profile Info</a>
+                </li>
+                <li class="">
+                    <a data-toggle="tab" href="#account">Account Settings</a>
+                </li>
+                <li class="">
+                    <a data-toggle="tab" href="#payment">Payment Gateways</a>
+                </li>
+                <li class="">
+                    <a data-toggle="tab" href="#membership">Membership Info</a>
+                </li>
+            </ul>
+        </header>
+        <div class="panel-body">
+            <div class="tab-content">
+                <div id="profile" class="tab-pane active">
+                    <div class="col-md-2">
+                        <div class="round-image">
+                            <%= image_tag @user.image.url(:square) %>
+                        </div>
+                        <div class="registration-upload-field">
+                            <%= f.file_field :image %>
+                        </div>
+                    </div>
+
+                    <div class="col-md-10">
+                        <div class="form-group">
+                            <%= f.text_field :name, :class => 'form-control', :placeholder => 'Your Name', autofocus: true %>
+                        </div>
+
+                        <div class="form-group">
+                        <%= f.email_field :email, :class => 'form-control', :placeholder => 'Your Email' %>
+                        </div>
+
+                        <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+                        <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+                        <% end %>
+
+                        <div class="form-group">
+                            <%= f.password_field :password, :class => 'form-control', :placeholder => 'New Password', autocomplete: "off" %>
+                        </div>
+
+                        <div class="form-group">
+                            <%= f.password_field :password_confirmation, :class => 'form-control', :placeholder => 'Confirm New Password', autocomplete: "off" %>
+                        </div>
+
+                        <div class="form-group">
+                            <%= f.password_field :current_password, :class => 'form-control', :placeholder => 'Current Password', autocomplete: "off" %>
+                        </div>
+
+                        <%= f.submit "Update", :class => 'btn btn-lg btn-success btn-block' %>
+                        <% end %>
+                        <div class="registration text-center">
+                            <h4 class="">Unhappy?</h4>
+                            <p>Please say it's not so! </p>
+                            <a class="btn btn-danger white-font" data-toggle="modal" href="#myModal5">
+                                Delete Account :(
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div id="account" class="tab-pane">About</div>
+                <div id="payment" class="tab-pane">Profile</div>
+                <div id="membership" class="tab-pane">Contact</div>
+            </div>
+        </div>
+    </section>
+</div>
+
+
+<!-- vertical center large Modal  start -->
+<div class="modal fade modal-dialog-center" id="myModal5" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content-wrap">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title">Delete Account</h4>
+                </div>
+                <div class="modal-body">
+                    <p><strong>Warning!</strong></p>
+                    <p>You are about to delete your account. Are you really sure you want to do that? Let us talk you out of it! <a href="#">Contact us now</a></p>
+                </div>
+                <div class="modal-footer">
+                    <button data-dismiss="modal" class="btn btn-default" type="button">Close</button>
+                    <%= button_to "Confirm", registration_path(resource_name), data: { confirm: "Are you sure?" }, :class => 'btn btn-danger delete-button', method: :delete %>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
