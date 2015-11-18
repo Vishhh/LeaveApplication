@@ -9,7 +9,12 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
   resources :employees
   resources :users
-  resources :leaves
+  resources :leaves do
+    member do
+      patch 'approve'
+      patch 'reject'
+    end
+  end
   # You can have the root of your site routed with "root"
    root 'welcomes#index'
 
