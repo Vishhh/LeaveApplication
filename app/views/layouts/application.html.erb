@@ -18,6 +18,7 @@
       <% if user_signed_in? %>
         <li class="dropdown">          
           <a data-toggle="dropdown" class="dropdown-toggle current_user_nav" href="#">
+          <img src="https://s3.amazonaws.com/twdtb/default_image/missing_original.png" alt="Missing original">
           <span class="username"><%= current_user.email %></span>
           <b class="caret"></b></a>
           <ul class="dropdown-menu extended logout">
@@ -54,7 +55,7 @@
     <a href="/">
       <i class="fa fa-dashboard"></i>
       <span>Dashboard</span>
-    </a></li>
+    </a></li><br/>
     <% if current_user %>
     	<%= render 'layouts/admin_menu' %>
     <% elsif current_employee %>
@@ -64,7 +65,7 @@
    </div> 
 </aside>
     <section id="main-content">
-      <section class="wrapper site-min-height">
+      
           <% if notice %>
           <p class="alert alert-success"><%= notice %></p>
           <% end %>
@@ -72,7 +73,7 @@
           <p class="alert alert-danger"><%= alert %></p>
           <% end %>
           <%= yield %>
-      </section>
+     
     </section>
 </div>
 </aside>
