@@ -23,7 +23,7 @@
 					<% if leave.approved == true %>
 					<% leave.status = "Approved"%>
 					<% end %>
-					<%= leave.status %>
+					<div class= "label Pending label-mini"><%= leave.status %></div>
 				</td>
 				<td>
 				<%= link_to leafe_path(leave), :class => "btn btn-primary btn-xs" do %>
