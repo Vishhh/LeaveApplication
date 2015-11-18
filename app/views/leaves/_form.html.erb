@@ -21,15 +21,18 @@
               <th>Leave To</th>
             </tr>
           </thead>
-          
           <tbody id="tbody">
             <tr>
               <td label class="col-sm-2 control-label">
                 <%= f.text_field :task, :class => 'form-control'%>
               </td>
-
-              <td label class="col-sm-1 control-label">
+              <td label class="col-sm-1 control-label"  >
+              <div id="datetimepicker">
                 <%= f.date_field :leave_from, :class => 'form-control'%>
+                
+                <i data-time-icon="icon-time" data-date-icon="icon-calendar"></i>
+              </div>
+              
               </td>
 
               <td label class="col-sm-1 control-label">

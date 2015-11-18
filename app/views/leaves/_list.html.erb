@@ -2,9 +2,11 @@
 	<table class="display table table-bordered table-striped">
 		<thead>
 			<tr>
+			<% if current_user%>
 				<th>Employee ID</th>
-				<th>Leave Count</th>
-				<th>Reason</th>
+				<%end%>
+				<th>Leave From</th>
+				<th>Leave To</th>
 				<th>Date Created</th>
 				<th>Status</th>
 				<th>Action</th>
@@ -13,18 +15,24 @@
 		<tbody>
 			<% @leaves.each do |leave| %>
 			<tr>
-				<td><% if current_user %>
-				<%= leave.employee_id %>
-				<% end %></td>
-				<td><%= leave.leave_to - leave.leave_from %></td>
+				<% if current_user %><td>
+				<%= leave.employee_id %></td>
+				<% end %>
+				<td><%= leave.leave_from %></td>
+				<td><%= leave.leave_from %></td>
 				<td><%= leave.task %></td>
-				<td><%= leave.created_at.strftime("%b. %d %Y") %></td>
-				<td><% leave.status = "Pending"%>
-					<% if leave.approved == true %>
-					<% leave.status = "Approved"%>
-					<% end %>
-					<div class= "label Pending label-mini"><%= leave.status %></div>
+
+				<td>
+				<% if leave.status == "Approve" %>
+				<div class ="btn btn-info btn-xs"><%= leave.status %>
+				<%elsif leave.status == "Reject"%>
+				<div class ="btn btn-danger btn-xs"><%= leave.status %>
+				<% else %>
+				<div class ="btn btn-primary btn-xs"><%= leave.status = "Pending"%>
+				</div>
+				<%end%>
 				</td>
+				
 				<td>
 				<%= link_to leafe_path(leave), :class => "btn btn-primary btn-xs" do %>
 				  <i class="fa fa-folder"></i> View
@@ -33,14 +41,31 @@
 					<%= link_to edit_leafe_path(leave), :class => "btn btn-info btn-xs" do %>
 					  <i class="fa fa-pencil"></i> Edit
 					<% end %>
-					<%= link_to leafe_path(leave), :class => 'btn btn-danger btn-xs', method: :delete, data: { confirm: 'Are you sure?' } do %>
-					  <i class="fa fa-trash-o"></i> Delete
-					<% end %>
+
+					<%#= submit_tag "Approve", :controller => "leaves", :action => "approve" %>
+					<%#= leave.submit "Approve", :value => 'Approve'%>
+					<%#= submit_tag "Approve", :name => 'Approve' %>
+					<%#= button_to "Approve", approve_leafe_path(leave) %>
+				<!-- 	<button class="btn btn-info btn-xs" type="submit">Approved</button> -->
+					<!-- <button class="btn btn-danger btn-xs" type="submit">Reject</button> -->
+	
 				<%end%>
 			</td>
 			</tr>
 			<% end %>
+			<%if current_user %>
+        <%= form_for @leave, url: {action: "approve"} do  |leave|%>
+        <%= leave.submit "Approve", :value => 'Approve'%>
+        <% end %>
+      <%end%>
+      <%if current_user %>
+        <%= form_for @leave, url: {action: "reject"} do  |leave|%>
+        <%= leave.submit "Reject", :value => 'Reject'%>
+        <% end %>
+      <%end%>
+			
 		</tbody>
+
 	</table>
 	<%#=  @leaves %>
 </div>
