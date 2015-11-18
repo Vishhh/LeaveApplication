@@ -6,7 +6,8 @@
  *
 */
 #aside_bar {
-  width: 210px;height: 100%;position: fixed;background: #2a3542;
+  width: 210px;height: 100%; display: block;
+  padding: 15px 0 15px 10px; position: fixed;background: #2a3542;
 }
 h1,
 h2,
