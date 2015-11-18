@@ -21,7 +21,8 @@
 // require all-chartjs
 //= require count
 
-
+//= require moment
+//= require bootstrap-datetimepicker
 //= require prism
 // require ace/ace
 // require ace/worker-html
