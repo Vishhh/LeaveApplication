@@ -19,6 +19,7 @@ class LeavesController < ApplicationController
 
   def create
     @leave = Leave.new(leave_params)
+
     if current_user
       @leave.user_id = current_user.id
     else
@@ -54,6 +55,30 @@ class LeavesController < ApplicationController
     @leave = Leave.find(params[:id])
     @leave.destroy
     redirect_to leaves_url
+  end
+
+  def approve
+  
+    @leave = Leave.find(params[:id])
+    @leave.status = "Approve"
+      # params[:status] = 'Approve'
+    if @leave.save
+      # redirect_to @leave
+    else
+      render 'new'
+    end
+redirect_to leaves_path
+  end
+
+  def reject
+    @leave = Leave.find(params[:id])
+    @leave.status = "Reject"
+   
+    if @leave.save
+      redirect_to @leave
+    else
+      render 'new'
+    end
   end
 
   private
