@@ -26,26 +26,25 @@
   <div class ="text-center">
     <strong>Calculated days of leave</strong>
     <%= @leave.leave_to - @leave.leave_from %><br/><br/><br/>
-
       <%if current_user %>
+
         <%= form_for @leave, url: {action: "approve"} do  |leave|%>
          <div class="btn ">
         <%= leave.submit "Approve",:class => "btn btn-success btn-xs", :value => 'Approve'%>
         </div>
         <% end %>
+
       <%end%>
+
       <%if current_user %>
+
         <%= form_for @leave, url: {action: "reject"} do  |leave|%>
         <div class="btn ">
         <%= leave.submit "Reject",:class => "btn btn-danger btn-xs", :value => 'Reject'%>
         </div>
         <% end %>
+        
       <%end%>
-
     <%= link_to "back", leaves_path%>
   </div>
 </p>
-        <%# leave.approved = true %>
-        <%# leave.status = "Approved"%>
-                  <h3><%#= leave.check_box :approved %><br/>
-          <%#= leave.submit "Approved" %></h3>
