@@ -21,8 +21,8 @@
 		<tbody>
 			<% @leaves.each do |leave| %>
 			<tr>
-				<% if current_user %><td>
-					<%= leave.employee_id %>
+				<% if current_user %><td>	
+					<%= leave.employee.name %>
 					<div id = "admin_tag">
 						<% if leave.employee_id == nil%>
 							<%= "Admin"%>
@@ -39,7 +39,7 @@
 				</td>
 				<% end %>
 				<td><%= leave.leave_from %></td>
-				<td><%= leave.leave_from %></td>
+				<td><%= leave.leave_to %></td>
 				<td><%= leave.task %></td>
 
 				<td>
