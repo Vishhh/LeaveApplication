@@ -2,9 +2,12 @@
 	<table class="display table table-bordered table-striped">
 		<thead>
 			<tr>
+
 			<% if current_user%>
 				<th>Employee ID</th>
-				<%end%>
+			<%elsif current_employee %>
+				<th>Leave Added</th>
+			<%end%>
 				<th>Leave From</th>
 				<th>Leave To</th>
 				<th>Date Created</th>
@@ -20,8 +23,23 @@
 			<% @leaves.each do |leave| %>
 			<tr>
 				<% if current_user %><td>
-				<%= leave.employee_id %></td>
+					<%= leave.employee_id %>
+					<div id = "admin_tag">
+						<% if leave.employee_id == nil%>
+							<%= "Admin"%>
+						<% end%>
+					</div>
+				</td>
+				<%else%>
+				<td>
+				<div id = "holiday_tag">
+						<% if leave.employee_id == nil%>
+							<%= "Holiday"%>
+						<% end%>
+					</div>
+				</td>
 				<% end %>
+				
 				<td><%= leave.leave_from %></td>
 				<td><%= leave.leave_from %></td>
 				<td><%= leave.task %></td>
