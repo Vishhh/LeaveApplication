@@ -1,6 +1,18 @@
 Rails.application.routes.draw do
 
 
+  get 'hardwares/model_no'
+
+  get 'hardwares/name'
+
+  get 'hardwares/purchase_date'
+
+  get 'hardwares/brand'
+
+  get 'hardwares/description'
+
+  get 'hardwares/token'
+
   get 'welcomes/index'
 
   devise_for :employees
