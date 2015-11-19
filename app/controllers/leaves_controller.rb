@@ -1,8 +1,7 @@
 class LeavesController < ApplicationController
   def index
     if current_user
-       @leaves = Leave.all
-      # @leaves = Leave.where(:user_id => current_user) && Leave.where(:employee_id => current_employee)
+      @leaves = Leave.all
     elsif current_employee
       @leaves = Leave.where(:employee_id => current_employee) | Leave.where(:employee_id => nil)
     end
@@ -63,11 +62,10 @@ class LeavesController < ApplicationController
     @leave.status = "Approve"
       # params[:status] = 'Approve'
     if @leave.save
-      # redirect_to @leave
+      redirect_to leaves_path
     else
       render 'new'
     end
-  redirect_to leaves_path
   end
 
   def reject
@@ -75,11 +73,10 @@ class LeavesController < ApplicationController
     @leave.status = "Reject"
    
     if @leave.save
-      # redirect_to @leave
+     redirect_to leaves_path
     else
       render 'new'
     end
-    redirect_to leaves_path
   end
 
   private
