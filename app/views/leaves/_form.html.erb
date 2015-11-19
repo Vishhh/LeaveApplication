@@ -1,4 +1,4 @@
-<%= form_for @leave do |f| %>
+<%= simple_form_for @leave do |f| %>
 <section>
   <div class= "col-md-10">
     <div class="panel panel-primary">
@@ -17,26 +17,21 @@
           <thead>
             <tr>
               <th>Task</th>
-              <th>Leave From</th>
-              <th>Leave To</th>
+              <th></th>
+              <th></th>
             </tr>
           </thead>
           <tbody id="tbody">
             <tr>
               <td label class="col-sm-2 control-label">
-                <%= f.text_field :task, :class => 'form-control'%>
+                <%= f.text_field :task, :class => 'form-control'%>       
               </td>
-              <td label class="col-sm-1 control-label"  >
-              <div id="datetimepicker">
-                <%= f.date_field :leave_from, :class => 'form-control'%>
-                
-                <i data-time-icon="icon-time" data-date-icon="icon-calendar"></i>
-              </div>
-              
+              <td  >
+                <%= f.input :leave_from,:class => "datepicker" %>
               </td>
 
-              <td label class="col-sm-1 control-label">
-                <%= f.date_field :leave_to, :class => 'form-control'%>
+              <td >
+                <%= f.input :leave_to, :class => 'form-control'%>
               </td>
             </tr>
           </tbody> 
@@ -50,6 +45,17 @@
 </section>
 <% end %>
 
+<script>
+  $(".datepicker").datepicker({
+                dateFormat : "dd MM yy",
+                buttonImageOnly : true,
+                buttonImage : "<%= asset_path('iconDatePicker.gif') %>",
+                showOn : "both",
+                changeMonth : true,
+                changeYear : true,
+                yearRange : "c-20:c+5"
+            })
+</script>
 <script>
   window.NestedFormEvents.prototype.insertFields = function(content, assoc, link) {
     var $tr = $(link).parent().find("#tbody");
