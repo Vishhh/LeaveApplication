@@ -1,8 +1,9 @@
 class LeavesController < ApplicationController
   def index
     if current_user
-      @leaves = Leave.all
+      @leaves = Leave.includes(:employee)
     elsif current_employee
+
       @leaves = Leave.where(:employee_id => current_employee)
     end
   end
@@ -21,7 +22,7 @@ class LeavesController < ApplicationController
     if current_user
       @leave.user_id = current_user.id
     else
-      @leave.employee_id = current_employee.id
+       @leave.employee_id = current_employee.id
     end
     if @leave.save
       redirect_to @leave

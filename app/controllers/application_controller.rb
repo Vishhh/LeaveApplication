@@ -5,14 +5,14 @@ class ApplicationController < ActionController::Base
 
   protected
   def configure_permitted_parameters
-  devise_parameter_sanitizer.for(:sign_up) { |u| u.permit(:name, :email, :password) }
+  devise_parameter_sanitizer.for(:sign_up) { |u| u.permit(:name, :email, :password, :password_confirmation) }
 	end
 
  include CanCan::ControllerAdditions
   rescue_from CanCan::AccessDenied do |exception|
     redirect_to root_url, :alert => exception.message
   end
-  protect_from_forgery with: :exception
+  
   protect_from_forgery with: :exception
    def after_sign_in_path_for(resource)
 		if (resource == current_user)

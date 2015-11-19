@@ -1,8 +1,14 @@
 class EmployeesController < ApplicationController
 	load_and_authorize_resource
+
 	def index
 	@employees= Employee.all
 	end
+
+	def create
+		@employee= Employee.new(employee_params)
+	end
+
 	def new
 		@employee= Employee.new
 	end
@@ -21,4 +27,8 @@ class EmployeesController < ApplicationController
 		  end 
 	  end
 
+	  private
+	  # def employee_params
+			# params.require(:employee).permit()
+	  # end 
 end

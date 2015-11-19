@@ -33,6 +33,11 @@ class HolidaysController < ApplicationController
 
 	def update
 		@holiday = Holiday.find(params[:id])
+		if @holiday.update(holiday_params)
+      redirect_to holidays_path
+    else
+      render 'new'
+    end
 	end
 
 	def destroy
@@ -42,6 +47,6 @@ class HolidaysController < ApplicationController
 
 	private
 	def holiday_params
-		params.require(:holiday).permit(:leave_from, :leave_to, :description, :holiday_number)
+		params.require(:holiday).permit(:from, :to, :description, :holiday_number)
 	end
 end
