@@ -1,0 +1,26 @@
+<div class ="col-md-10">
+	<table class="display table table-bordered table-striped">
+		<thead>
+			<tr>
+				<th>Model No</th>
+				<th>Name</th>
+				<th>Description</th>
+				<th>brand</th>
+				<th>Purchase Date</th>
+				<th>Token No</th>
+			</tr>
+		</thead> 
+		<tbody>
+			<% @hardwares.each do |hardware| %>
+			<tr>
+				<td><%= hardware.model_no %></td>
+				<td><%= hardware.name %></td>
+				<td><%= hardware.description %></td>
+				<td><%= hardware.brand %></td>
+				<td><%= hardware.purchase_date %></td>
+				<td><%= hardware.token_no %></td>
+				<% end %>
+			</tr>
+		</tbody>
+	</table>
+</div>
