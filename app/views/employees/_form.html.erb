@@ -1,0 +1,39 @@
+<%= simple_form_for @employee do |f| %>
+<section>
+  <div class= "col-md-10">
+    <div class="panel panel-primary">
+      <div class="panel-body">        
+        <table class="table table-striped table-hover">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Email</th>
+              <th>password</th>
+              <th>salary</th>
+            </tr>
+          </thead>
+          <tbody id="tbody">
+            <tr>
+              <td>
+                <%= f.text_field :name, :class => 'form-control'%>       
+              </td>
+              <td>
+                <%= f.text_field :email, :class => 'form-control'%>       
+              </td>
+              <td>
+                <%= f.password_field :password, :class => 'form-control'%>       
+              </td>
+              <td>
+                <%= f.text_field :salary, :class => 'form-control'%>       
+              </td>
+            </tr>
+          </tbody> 
+        </table><br/><br/><br/>          
+        <div class="text-center invoice-btn">
+          <%= f.submit 'Apply', :class => 'btn btn-success btn-lg' %>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<% end %>
