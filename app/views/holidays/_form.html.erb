@@ -1,0 +1,44 @@
+<%= simple_form_for @holiday do |f| %>
+<section>
+  <div class= "col-md-10">
+    <div class="panel panel-primary">
+      <div class="panel-body">
+        <div class="row invoice-list">
+          <div class="col-md-3 form-group pull-right">
+            <label class= "control-label">Holiday Number</label>
+            <%= f.text_field :holiday_number, :class =>"form-control" %>
+          </div>
+        </div>
+        
+        <table class="table table-striped table-hover">
+          <thead>
+            <tr>
+              <th>Description</th>
+              <th></th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody id="tbody">
+            <tr>
+              <td label class="col-sm-2 control-label">
+                <%= f.text_field :task, :class => 'form-control'%>       
+              </td>
+              <td  >
+                <%= f.input :leave_from,:class => "datepicker" %>
+              </td>
+
+              <td >
+                <%= f.input :leave_to, :class => 'form-control'%>
+              </td>
+            </tr>
+          </tbody> 
+        </table><br/><br/><br/>          
+        <div class="text-center invoice-btn">
+          <%= f.submit 'Apply', :class => 'btn btn-success btn-lg' %>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<% end %>
+

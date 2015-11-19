@@ -1,0 +1,20 @@
+<%= form_for :holidays do |f| %>
+<div class="row">
+  <div class="col-lg-10">
+    <div class="row">
+      <div class="col-lg-10" id="example_filter">
+        <div class="row search-row">
+          <div class="col-md-6 pull-left">
+            <% if current_user  %>
+            <%= link_to 'New Holiday', new_holiday_path, { :class => 'btn btn-success' } %>
+            <% elsif current_employee  %>
+            <%= link_to 'New Holiday', new_holiday_path, { :class => 'btn btn-success' } %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<%#= render_filterrific_spinner %>
+<% end %>
