@@ -30,15 +30,14 @@
       <%if current_user %>
         <%= form_for @leave, url: {action: "approve"} do  |leave|%>
          <div class="btn ">
-        <%= leave.submit "Approve", :value => 'Approve'%>
+        <%= leave.submit "Approve",:class => "btn btn-success btn-xs", :value => 'Approve'%>
         </div>
         <% end %>
-
       <%end%>
       <%if current_user %>
         <%= form_for @leave, url: {action: "reject"} do  |leave|%>
         <div class="btn ">
-        <%= leave.submit "Reject", :value => 'Reject'%>
+        <%= leave.submit "Reject",:class => "btn btn-danger btn-xs", :value => 'Reject'%>
         </div>
         <% end %>
       <%end%>
