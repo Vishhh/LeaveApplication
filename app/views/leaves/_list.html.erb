@@ -2,15 +2,14 @@
 	<table class="display table table-bordered table-striped">
 		<thead>
 			<tr>
-
 			<% if current_user%>
 				<th>Employee ID</th>
 			<%elsif current_employee %>
-				<th>Leave Added</th>
+				<th>Leave Added </th>
 			<%end%>
 				<th>Leave From</th>
 				<th>Leave To</th>
-				<th>Date Created</th>
+				<th>Description</th>
 				<th>Status</th>
 				<th>Action</th>
 				<% if current_user%>
@@ -39,7 +38,6 @@
 					</div>
 				</td>
 				<% end %>
-				
 				<td><%= leave.leave_from %></td>
 				<td><%= leave.leave_from %></td>
 				<td><%= leave.task %></td>
