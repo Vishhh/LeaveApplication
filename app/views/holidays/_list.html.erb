@@ -2,8 +2,8 @@
 	<table class="display table table-bordered table-striped">
 		<thead>
 			<tr>
-				<th>Leave From</th>
-				<th>Leave To</th>
+				<th>From</th>
+				<th>To</th>
 				<th>Description</th>
 				<% if current_user %>
 					<th>Action</th>
@@ -13,8 +13,8 @@
 		<tbody>
 			<% @holidays.each do |holiday| %>
 			<tr>
-				<td><%= holiday.leave_from %></td>
-				<td><%= holiday.leave_to %></td>
+				<td><%= holiday.from %></td>
+				<td><%= holiday.to %></td>
 				<td label class="col-sm-6 control-label"><%= holiday.description %></td>		
 				<% if current_user %>
 				<td>
