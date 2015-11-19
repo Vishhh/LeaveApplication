@@ -3,7 +3,7 @@ class LeavesController < ApplicationController
     if current_user
       @leaves = Leave.all
     elsif current_employee
-      @leaves = Leave.where(:employee_id => current_employee) | Leave.where(:employee_id => nil)
+      @leaves = Leave.where(:employee_id => current_employee)
     end
   end
 
