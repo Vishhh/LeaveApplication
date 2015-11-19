@@ -1,19 +1,39 @@
 class HardwaresController < ApplicationController
-  def model_no
+  def index
+    if current_user
+      @hardwares = Hardware.all
+    end
   end
 
-  def name
+  def create 
+    @hardware = Hardware.new(hardware_params)
   end
 
-  def purchase_date
+  def new
+    @hardware = Hardware.new
   end
 
-  def brand
+  def edit
+    @hardware = Hardware.find(params[:id])
   end
 
-  def description
+  def update
+    @hardware = Hardware.find(params[:id])
+    @hardware.update
   end
 
-  def token
+  def delete
+    @hardware = Hardware.find(params[:id])
+    @hardware.destroy
   end
+
+  def show
+    @hardware = Hardware.find(params[:id])
+  end
+
+  private
+   def hardware_params
+          params.require(:leave).permit()
+
+   end
 end

@@ -4,6 +4,7 @@ class User < ActiveRecord::Base
   has_many :employees
   has_many :leaves
   has_many :holidays
+  has_many :hardwares
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
