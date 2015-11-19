@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151119091507) do
+ActiveRecord::Schema.define(version: 20151119132658) do
 
   create_table "employees", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(version: 20151119091507) do
     t.datetime "updated_at",                          null: false
     t.integer  "user_id"
     t.string   "name"
+    t.string   "salary"
   end
 
   add_index "employees", ["email"], name: "index_employees_on_email", unique: true
@@ -37,8 +38,8 @@ ActiveRecord::Schema.define(version: 20151119091507) do
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
     t.string   "description"
-    t.date     "leave_from"
-    t.date     "leave_to"
+    t.date     "from"
+    t.date     "to"
     t.integer  "user_id"
     t.integer  "employee_id"
     t.integer  "holiday_number"
@@ -71,6 +72,7 @@ ActiveRecord::Schema.define(version: 20151119091507) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
+    t.string   "name"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
