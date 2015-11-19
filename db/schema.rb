@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151117142253) do
+ActiveRecord::Schema.define(version: 20151119084800) do
 
   create_table "employees", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -27,10 +27,21 @@ ActiveRecord::Schema.define(version: 20151117142253) do
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
     t.integer  "user_id"
+    t.string   "name"
   end
 
   add_index "employees", ["email"], name: "index_employees_on_email", unique: true
   add_index "employees", ["reset_password_token"], name: "index_employees_on_reset_password_token", unique: true
+
+  create_table "holidays", force: :cascade do |t|
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.string   "desctiption"
+    t.date     "leave_from"
+    t.date     "leave_to"
+    t.integer  "user_id"
+    t.integer  "employee_id"
+  end
 
   create_table "leaves", force: :cascade do |t|
     t.datetime "created_at",                   null: false
