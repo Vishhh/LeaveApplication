@@ -67,7 +67,7 @@ class LeavesController < ApplicationController
     else
       render 'new'
     end
-redirect_to leaves_path
+  redirect_to leaves_path
   end
 
   def reject
@@ -75,10 +75,11 @@ redirect_to leaves_path
     @leave.status = "Reject"
    
     if @leave.save
-      redirect_to @leave
+      # redirect_to @leave
     else
       render 'new'
     end
+    redirect_to leaves_path
   end
 
   private
