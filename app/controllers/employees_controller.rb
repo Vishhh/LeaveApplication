@@ -2,7 +2,7 @@ class EmployeesController < ApplicationController
 	load_and_authorize_resource
 
 	def index
-	@employees= Employee.all
+		@employees= Employee.all
 	end
 
 	def create
@@ -19,16 +19,16 @@ class EmployeesController < ApplicationController
 		@employee = Employee.find(params[:id])
 	end
   def update
-	  @employee = Employee.find(params[:id])
-		  if @employee.update
-		    redirect_to @employee
-		  else
-		    render 'edit'
-		  end 
-	  end
+  @employee = Employee.find(params[:id])
+	  if @employee.update
+	    redirect_to @employee
+	  else
+	    render 'edit'
+	  end 
+  end
 
-	  private
-	  # def employee_params
-			# params.require(:employee).permit()
-	  # end 
+  private
+  def employee_params
+		params.require(:employee).permit(:email, :password, :name, :salary)
+  end 
 end

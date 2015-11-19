@@ -7,10 +7,16 @@ class HardwaresController < ApplicationController
 
   def create 
     @hardware = Hardware.new(hardware_params)
+    if @hardware.save
+      redirect_to @hardware
+    else
+      render 'new'
+    end
   end
 
   def new
     @hardware = Hardware.new
+    @hardware.generate_hardware_number(current_user)
   end
 
   def edit

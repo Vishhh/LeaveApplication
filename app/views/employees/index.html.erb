@@ -1,2 +1,20 @@
-<h2>Employee Home Page</h2><br/><br/>
-<h3>Last Seen  <%= current_employee.last_sign_in_at %></h3>
+<div class ="col-md-10">
+	<table class="display table table-bordered table-striped">
+		<thead>
+			<tr>
+				<th>Name</th>
+				<th>Email</th>
+				<th>Salary</th>
+			</tr>
+		</thead> 
+		<tbody>
+			<% @employees.each do |employee| %>
+			<tr>
+				<td><%= employee.name %></td>
+				<td><%= employee.email %></td>
+				<td><%= employee.salary %></td>
+			</tr>
+			<% end %>
+		</tbody>
+	</table>
+</div>
