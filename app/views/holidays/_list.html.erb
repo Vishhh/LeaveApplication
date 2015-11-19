@@ -1,0 +1,33 @@
+<div class ="col-md-10">
+	<table class="display table table-bordered table-striped">
+		<thead>
+			<tr>
+				<th>Leave From</th>
+				<th>Leave To</th>
+				<th>Description</th>
+				<% if current_user %>
+					<th>Action</th>
+				<% end%>
+			</tr>
+		</thead> 
+		<tbody>
+			<% @holidays.each do |holiday| %>
+			<tr>
+				<td><%= holiday.leave_from %></td>
+				<td><%= holiday.leave_to %></td>
+				<td label class="col-sm-6 control-label"><%= holiday.description %></td>		
+				<% if current_user %>
+				<td>
+					<%#= link_to leafe_path(leave), :class => "btn btn-primary btn-xs" do %>
+					  <!-- <i class="fa fa-folder"></i> View -->
+					<%# end %>
+					
+						<%= link_to edit_holiday_path(holiday), :class => "btn btn-info btn-xs" do %><i class="fa fa-pencil"></i> Edit
+						<% end %>
+				</td>
+				<% end %>
+			</tr>
+			<%end%>
+		</tbody>
+	</table>
+</div>
