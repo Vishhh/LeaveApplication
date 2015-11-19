@@ -33,7 +33,6 @@ class HardwaresController < ApplicationController
 
   private
    def hardware_params
-          params.require(:leave).permit()
-
+    params.require(:hardware).permit(:model_no, :name, :purchase_date, :brand, :description, :token_no)
    end
 end
