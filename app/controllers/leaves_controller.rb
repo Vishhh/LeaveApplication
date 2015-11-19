@@ -18,7 +18,6 @@ class LeavesController < ApplicationController
 
   def create
     @leave = Leave.new(leave_params)
-
     if current_user
       @leave.user_id = current_user.id
     else
@@ -60,7 +59,6 @@ class LeavesController < ApplicationController
   
     @leave = Leave.find(params[:id])
     @leave.status = "Approve"
-      # params[:status] = 'Approve'
     if @leave.save
       redirect_to leaves_path
     else

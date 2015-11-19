@@ -36,7 +36,7 @@ ActiveRecord::Schema.define(version: 20151119091507) do
   create_table "holidays", force: :cascade do |t|
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
-    t.string   "desctiption"
+    t.string   "description"
     t.date     "leave_from"
     t.date     "leave_to"
     t.integer  "user_id"
