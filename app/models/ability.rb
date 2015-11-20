@@ -14,6 +14,7 @@ class Ability
 
     def user_rules(user)
       can :manage, User
+      can :manage, Employee
     end
 
     def employee_rules(employee)
