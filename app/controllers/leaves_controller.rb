@@ -3,7 +3,6 @@ class LeavesController < ApplicationController
     if current_user
       @leaves = Leave.includes(:employee)
     elsif current_employee
-
       @leaves = Leave.where(:employee_id => current_employee)
     end
   end
@@ -57,7 +56,6 @@ class LeavesController < ApplicationController
   end
 
   def approve
-  
     @leave = Leave.find(params[:id])
     @leave.status = "Approve"
     if @leave.save
@@ -70,7 +68,6 @@ class LeavesController < ApplicationController
   def reject
     @leave = Leave.find(params[:id])
     @leave.status = "Reject"
-   
     if @leave.save
      redirect_to leaves_path
     else
