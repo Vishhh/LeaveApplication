@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151119142019) do
+ActiveRecord::Schema.define(version: 20151121073012) do
 
   create_table "employees", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -28,7 +28,7 @@ ActiveRecord::Schema.define(version: 20151119142019) do
     t.datetime "updated_at",                          null: false
     t.integer  "user_id"
     t.string   "name"
-    t.string   "salary"
+    t.float    "salary"
   end
 
   add_index "employees", ["email"], name: "index_employees_on_email", unique: true
@@ -57,6 +57,15 @@ ActiveRecord::Schema.define(version: 20151119142019) do
     t.integer  "holiday_number"
   end
 
+  create_table "items", force: :cascade do |t|
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.integer  "employee_id"
+    t.integer  "user_id"
+    t.float    "amount"
+    t.integer  "salary_id"
+  end
+
   create_table "leaves", force: :cascade do |t|
     t.datetime "created_at",                   null: false
     t.datetime "updated_at",                   null: false
@@ -69,6 +78,16 @@ ActiveRecord::Schema.define(version: 20151119142019) do
     t.string   "status"
     t.string   "total"
     t.integer  "leave_number"
+  end
+
+  create_table "salaries", force: :cascade do |t|
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.string   "month"
+    t.string   "year"
+    t.integer  "employee_id"
+    t.integer  "user_id"
+    t.float    "working_days"
   end
 
   create_table "users", force: :cascade do |t|

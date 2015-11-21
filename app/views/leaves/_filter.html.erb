@@ -5,10 +5,10 @@
       <div class="col-lg-10" id="example_filter">
         <div class="row search-row">
           <div class="col-md-6 pull-left">
-            <% if current_user  %>
-            <%= link_to 'New Leave Application', new_leafe_path, { :class => 'btn btn-success' } %>
-            <% elsif current_employee  %>
-          <%= link_to 'New Leave Application', new_leafe_path, { :class => 'btn btn-success' } %>
+            <%# if current_user  %>
+            <%#= link_to 'New Leave Application', new_leave_path, { :class => 'btn btn-success' } %>
+            <% if current_employee  %>
+          <%= link_to 'New Leave Application', new_leave_path, { :class => 'btn btn-success' } %>
             <% end %>
           </div>
         </div>
