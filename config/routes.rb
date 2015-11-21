@@ -8,9 +8,11 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   resources :employees
+  resources :salaries
   resources :users
   resources :holidays
   resources :hardwares
+  resources :salaries
   resources :leaves do
     member do
       patch 'approve'
