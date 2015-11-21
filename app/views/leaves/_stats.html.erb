@@ -7,12 +7,12 @@
 				</div>
 				<div class="value">
 					<h1 class="count">
-					<% if current_user %><% total_leave=0 %>
-
-						<% @leaves.each do |leave| %>
-						<% total_leave = total_leave + (leave.leave_to-leave.leave_from) %>
-						<% end %><%= total_leave %>
-					<% end %></h1><p>Total Leave</p>
+					<%if current_employee %>
+						<%= current_employee.total_leave %>
+					<%else%>
+						<%= current_user.total_leave %>	
+					<%end%>		
+					<p>Total Leave</p>		
 				</div>
 			</section>
 		</div>
@@ -23,14 +23,12 @@
 			</div>
 			<div class="value">
 				<h1 class=" count2">
-				<% if current_user %><% pending_leaves=0 %>
-				<% @leaves.each do |leave| %>
-					<% if leave.approved == false %>
-					<% pending_leaves = pending_leaves + (leave.leave_to - leave.leave_from) %>
-					<% end%>
-				<%end%><%= pending_leaves %></h1>
+				<% if current_employee %>
+					<%=  current_employee.rejected_leaves %>
+				<%else%>
+					<%= current_user.rejected_leaves %>	
 				<%end%>
-				<p>Not Yet Approved</p>
+				<p>Rejected Leaves</p>
 			</div>
 		</section>
 	</div>
@@ -41,7 +39,11 @@
 			</div>
 			<div class="value">
 				<h1 class=" count3">
-					<%#= total_leave - pending_leaves %>
+				<% if current_employee %>
+					<%= current_employee.approved_leaves %>
+				<%else%>
+					<%= current_user.approved_leaves %>
+				<%end%>
 				</h1>
 				<p>Total Approved</p>
 			</div>
