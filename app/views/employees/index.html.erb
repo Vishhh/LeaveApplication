@@ -12,12 +12,26 @@
 			</tr>
 		</thead> 
 		<tbody>
+
 			<% @employees.each do |employee| %>
 			<tr>
 				<td><%= employee.name %></td>
 				<td><%= employee.email %></td>
 				<td><%= employee.salary %></td>
-			</tr>
+
+<%# approved_leaves=0 %>
+<%# @leaves.each do |leave| %>
+	<%# if leave.status == "Approve" %>
+	<%# approved_leaves = approved_leaves + (leave.leave_to - leave.leave_from) %>
+	<%# end%>
+<%#end%>
+<%# one_day_salary= 0%>
+<%# employee_working_days = 0 %>
+<%## employee_working_days = salary.working_days - approved_leaves %>
+
+
+		    <%#= total = one_day_salary*employee_working_days %>
+			</tr>	
 			<% end %>
 		</tbody>
 	</table>
