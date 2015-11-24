@@ -1,4 +1,4 @@
-<%= current_employee.email %>
+<%= current_employee.email %><br/>
 
 <li class="sub-menu menu-item-leaves">
   <%= link_to leaves_path do %>
@@ -7,6 +7,12 @@
   <% end %>
 </li><br/>
 
+<li class="sub-menu menu-item-leaves">
+  <%= link_to items_index_path do %>
+    <i class="fa fa-calendar"></i>
+    <span>Item</span>
+  <% end %>
+</li><br/>
 
 <li class="sub-menu menu-item-holidays">
   <%= link_to holidays_path do %>
