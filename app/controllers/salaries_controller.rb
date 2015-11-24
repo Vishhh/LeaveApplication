@@ -1,6 +1,7 @@
 class SalariesController < ApplicationController
 	def new
 		@salary = Salary.new
+		@salary.generate_salary_number(current_user)
 	end
 
 	def index
