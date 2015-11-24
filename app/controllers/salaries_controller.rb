@@ -1,7 +1,6 @@
 class SalariesController < ApplicationController
 	def new
 		@salary = Salary.new
-		# @salary.items.build
 	end
 
 	def index
@@ -11,20 +10,22 @@ class SalariesController < ApplicationController
 	def create
 		@salary = Salary.new(salary_params)
 		@employees = Employee.all
-		# @salary.user_id = current_user.id
-		one_day_salary = 0
-		employee_working_days = 0 
-		one_month_salary = 0
+		@salary.save
 		month_leave = 0
-			@employees.each do |employee|
-				employee.leaves.each do |leave|
-					month_leave =  month_leave + leave.get_leave_duration_for_month(@salary.year ,@salary.month)	
+		amount = 0
+		@employees.each do |employee|
+			employee.leaves.each do |leave|
+				if leave.status == "Approve"
+				month_leave =  month_leave + leave.get_leave_duration_for_month(@salary.year ,@salary.month)	
 				end
-				debugger
-				one_day_salary =	(employee.salary / @salary.working_days)			
-				employee_working_days =  (month_leave.to_f + @salary.working_days) 
-				one_month_salary = employee_working_days*one_day_salary
 			end
+		amount = (employee.salary / @salary.working_days)*(month_leave.to_f + @salary.working_days)
+		@item = Item.new(employee_name: employee.name, employee_id: employee.id, amount: amount, salary_month: @salary.month, salary_id: @salary.id)
+		@item.save
+end
+		if @salary.save
+			redirect_to salaries_path
+		end
 	end
 
 	def edit

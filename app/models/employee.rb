@@ -10,14 +10,14 @@ class Employee < ActiveRecord::Base
   validates :name, presence: true
   validates :salary, presence: true       
 
-	def get_employee_month_leave(year, month)
-		month_leave = 0
-		# self.leaves.where("strftime('%Y', leaves.leave_from) = ? AND strftime('%m', leaves.leave_from) + 0 = ?", year, month)
-			self.leaves.each do |leave|
-				month_leave =  month_leave + leave.get_leave_duration_for_month()
-			end
-		month_leave
-	end
+	# def get_employee_month_leave(year, month)
+	# 	month_leave = 0
+	# 	# self.leaves.where("strftime('%Y', leaves.leave_from) = ? AND strftime('%m', leaves.leave_from) + 0 = ?", year, month)
+	# 		self.leaves.each do |leave|
+	# 			month_leave =  month_leave + leave.get_leave_duration_for_month()
+	# 		end
+	# 	month_leave
+	# end
 
 	def total_leave
 		total_leave = 0
