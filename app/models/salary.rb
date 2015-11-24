@@ -3,6 +3,10 @@ class Salary < ActiveRecord::Base
 	belongs_to :employee
 	has_many :items
 
+	def generate_salary_number(user)
+    exiting_salary_count = Salary.count
+    self.salary_number = ("%03d"%(exiting_salary_count+1))
+  end
 
 	def salary
 		amount = 0

@@ -24,7 +24,7 @@ class Employee < ActiveRecord::Base
 		self.leaves.each do |leave|
 			total_leave = total_leave + (leave.leave_to - leave.leave_from)
 		end
-	total_leave
+		total_leave
 	end
 
 	 def rejected_leaves
@@ -34,7 +34,7 @@ class Employee < ActiveRecord::Base
 	 			rejected_leaves = rejected_leaves + (leave.leave_to - leave.leave_from)
 	 		end
 	 	end
-	 		rejected_leaves
+	 	rejected_leaves
 	 end
 
 	def approved_leaves
