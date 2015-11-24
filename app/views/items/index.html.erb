@@ -1,0 +1,28 @@
+<% if current_user %>
+
+<div class ="col-md-10">
+	<table class="display table table-bordered table-striped">
+		<thead>
+			<tr>
+				<th>Salary Id</th>
+				<th>Employee Id </th>
+				<th>Employee Name </th>
+				<th>Efective Salary</th>
+			</tr>
+		</thead> 
+		<tbody>
+			<% @items.each do |item| %>
+			<tr>
+			
+				<td><%= item.salary_id %></td>
+				<td><%= item.employee_id %></td>
+				<td><%= item.employee_name %></td>
+				<td><%= item.amount %></td>	
+			</tr>
+			<%#debugger%>
+			<% end %>
+		</tbody>
+	</table>
+</div>
+
+<%end%>
