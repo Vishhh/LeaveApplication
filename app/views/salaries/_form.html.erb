@@ -2,7 +2,13 @@
 <section>
   <div class= "col-md-10">
     <div class="panel panel-primary">
-      <div class="panel-body">        
+      <div class="panel-body"> 
+        <div class="row invoice-list">
+          <div class="col-md-3 form-group pull-right">
+          <label class= "control-label">Salary Number</label>
+          <%= f.text_field :salary_number, :class =>"form-control" %>
+        </div>
+      </div>       
         <table class="table table-striped table-hover">
           <thead>
             <tr>
