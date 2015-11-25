@@ -27,7 +27,7 @@ class Employee < ActiveRecord::Base
 		total_leave
 	end
 
-	 def rejected_leaves
+	def rejected_leaves
 	 	rejected_leaves=0 
 	 	self.leaves.each do |leave|
 	 		if leave.status == "Reject"
@@ -35,7 +35,7 @@ class Employee < ActiveRecord::Base
 	 		end
 	 	end
 	 	rejected_leaves
-	 end
+	end
 
 	def approved_leaves
 		approved_leaves=0

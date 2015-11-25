@@ -19,11 +19,11 @@ class SalariesController < ApplicationController
 				if leave.status == "Approve"
 				month_leave =  month_leave + leave.get_leave_duration_for_month(@salary.year ,@salary.month)	
 				end
-			end
-		amount = (employee.salary / @salary.working_days)*(month_leave.to_f + @salary.working_days)
-		@item = Item.new(employee_name: employee.name, employee_id: employee.id, amount: amount, salary_month: @salary.month, salary_id: @salary.id)
-		@item.save
-end
+			end # debugger
+			amount = (employee.salary / @salary.working_days)*( @salary.working_days - month_leave.to_f )
+			@item = Item.new(employee_name: employee.name, employee_id: employee.id, amount: amount, salary_month: @salary.month, salary_id: @salary.id)
+			@item.save
+		end
 		if @salary.save
 			redirect_to salaries_path
 		end

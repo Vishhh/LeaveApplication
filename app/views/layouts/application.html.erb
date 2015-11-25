@@ -11,7 +11,7 @@
 <body>
 <section id= "container">
 <header>
-<a href="" class="logo">Leave <span>Application</span> <div class="small">(Alfa!)</div></a>
+<a href="" class="logo">Leave <span>Application</span></a>
   <div class= "top-nav">
     <ul class="nav pull-right top-menu">
       <li><input type="text" class="form-control search"></li>
@@ -23,8 +23,8 @@
           <b class="caret"></b></a>
           <ul class="dropdown-menu extended logout">
           <div class="log-arrow-up"></div>
-            <li><%#= link_to(edit_user_path(current_user.id)) do %>
-              <i class="fa fa-cog"></i> Setting<%# end %>
+            <li><%= link_to(edit_user_registration_path) do %>
+              <i class="fa fa-cog"></i> Setting<% end %>
             </li>
             <li><%= link_to('Logout', destroy_user_session_path, :method => :delete) %>
             </li>
@@ -38,8 +38,8 @@
           <b class="caret"></b></a>
           <ul class="dropdown-menu extended logout">
           <div class="log-arrow-up"></div>
-            <li><%#= link_to(edit_user_path(current_user.id)) do %>
-              <i class="fa fa-cog"></i> Setting<%# end %>
+            <li><%= link_to(edit_employee_registration_path(current_employee.id)) do %>
+              <i class="fa fa-cog"></i> Setting<% end %>
             </li>
             <li><%= link_to('Logout', destroy_employee_session_path, :method => :delete) %>
             </li>
@@ -49,9 +49,9 @@
     </ul>
   </div>
 </header>
-<aside><br/><br/><br/>
+<aside><br/><br/>
 <div id ="aside_bar">
-  <ul class="sidebar-menu"><li>
+  <ul class="sidebar-menu"> <li>
     <a href="/">
       <i class="fa fa-dashboard"></i>
       <span>Dashboard</span>
