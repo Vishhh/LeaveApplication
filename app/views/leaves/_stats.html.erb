@@ -10,7 +10,11 @@
 					<%if current_employee %>
 						<%= current_employee.total_leave %>
 					<%else%>
-						<%= current_user.total_leave %>	
+						<%total_leave = 0%>
+						<% @employees.each do |employee|%>
+						<% total_leave= total_leave+employee.total_leave.to_i%>
+						<% end %>
+						<%= total_leave%>
 					<%end%>		
 					<p>Total Leave</p>		
 				</div>
@@ -26,7 +30,11 @@
 				<% if current_employee %>
 					<%=  current_employee.rejected_leaves %>
 				<%else%>
-					<%= current_user.rejected_leaves %>	
+						<%rejected_leave = 0%>
+						<% @employees.each do |employee|%>
+						<% rejected_leave = rejected_leave + employee.rejected_leaves.to_i %>
+						<% end %>
+						<%= rejected_leave%>
 				<%end%>
 				<p>Rejected Leaves</p>
 			</div>
@@ -42,7 +50,11 @@
 				<% if current_employee %>
 					<%= current_employee.approved_leaves %>
 				<%else%>
-					<%= current_user.approved_leaves %>
+						<%approved_leave = 0%>
+						<% @employees.each do |employee|%>
+						<% approved_leave= approved_leave+ employee.approved_leaves.to_i %>
+						<% end %>
+						<%= approved_leave %>
 				<%end%>
 				</h1>
 				<p>Total Approved</p>
