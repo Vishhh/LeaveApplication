@@ -5,31 +5,7 @@
  *   version 2.2
  *
 */
-#admin_tag{
-  background: #ffff99;
-}
-#holiday_tag{
-  background: #ccffb3;
-}
 
-ul.sidebar-menu li a.active, ul.sidebar-menu li a:hover, ul.sidebar-menu li a:focus {
-    background: #35404d;
-    color: #fff;
-    display: block;
-    border-radius: 4px;
-    -webkit-border-radius: 4px;
-
-    -webkit-transition: all 0.3s ease;
-    -moz-transition: all 0.3s ease;
-    -o-transition: all 0.3s ease;
-    -ms-transition: all 0.3s ease;
-    transition: all 0.3s ease;
-}
-
-#aside_bar {
-  width: 13%;height: 100%; display: block;
-  padding: 0 0 15px 10px; position: fixed;background: #2a3542;
-}
 h1,
 h2,
 h3,
