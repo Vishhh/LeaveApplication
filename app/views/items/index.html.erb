@@ -18,7 +18,7 @@
 				<td><%= item.salary_month %></td>
 				<td><%= item.employee_id %></td>
 				<td><%= item.employee_name %></td>
-				<td><%= item.amount %></td>
+				<td><%= item.amount.round(2) %></td>
 			<%end%>	
 			<%end%>
 			<% if current_user%>
@@ -26,7 +26,7 @@
 				<td><%= item.salary_month %></td>
 				<td><%= item.employee_id %></td>
 				<td><%= item.employee_name %></td>
-				<td><%= item.amount %></td>
+				<td><%= item.amount.round(2) %></td>
 			<%end%>	
 			</tr>
 			<% end %>

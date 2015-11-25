@@ -1,6 +1,16 @@
 <% if current_user %>
- <div class= "text-center">
- <%= link_to 'New Employee', new_employee_path, { :class => 'btn btn-success' } %>
+<div class="row">
+  <div class="col-lg-10">
+    <div class="row">
+      <div class="col-lg-10" id="example_filter">
+        <div class="row search-row">
+          <div class="col-md-6 pull-left">
+ 					<%= link_to 'New Employee', new_employee_path, { :class => 'btn btn-success' } %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 <div class ="col-md-10">
 	<table class="display table table-bordered table-striped">
@@ -21,16 +31,14 @@
 
 <%# approved_leaves=0 %>
 <%# @leaves.each do |leave| %>
-	<%# if leave.status == "Approve" %>
-	<%# approved_leaves = approved_leaves + (leave.leave_to - leave.leave_from) %>
-	<%# end%>
+<%# if leave.status == "Approve" %>
+<%# approved_leaves = approved_leaves + (leave.leave_to - leave.leave_from) %>
+<%# end%>
 <%#end%>
 <%# one_day_salary= 0%>
 <%# employee_working_days = 0 %>
 <%## employee_working_days = salary.working_days - approved_leaves %>
-
-
-		    <%#= total = one_day_salary*employee_working_days %>
+<%#= total = one_day_salary*employee_working_days %>
 			</tr>	
 			<% end %>
 		</tbody>
