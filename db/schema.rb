@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151124114604) do
+ActiveRecord::Schema.define(version: 20151125073342) do
 
   create_table "employees", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -80,6 +80,7 @@ ActiveRecord::Schema.define(version: 20151124114604) do
     t.string   "status"
     t.string   "total"
     t.integer  "leave_number"
+    t.boolean  "halfday",      default: false
   end
 
   create_table "salaries", force: :cascade do |t|

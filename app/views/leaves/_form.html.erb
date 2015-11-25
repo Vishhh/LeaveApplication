@@ -16,6 +16,7 @@
               <th>Description</th>
               <th></th>
               <th></th>
+              <th></th>
             </tr>
           </thead>
           <tbody id="tbody">
@@ -23,19 +24,26 @@
               <td label class="col-sm-2 control-label">
                 <%= f.text_field :task, :class => 'form-control'%>       
               </td>
-              <td  >
+              <td >
                 <%= f.input :leave_from,:class => "datepicker" %>
               </td>
-
               <td >
                 <%= f.input :leave_to, :class => 'form-control'%>
+              </td>
+              <td>
+              <%= form_for @leave do |leave|%>
+                <h3><%= leave.check_box :halfday %><br/>
+                <div class="text-center invoice-btn">
+                <%= leave.submit "Apply" %></h3>
+                </div>
+              <% end %>
               </td>
             </tr>
           </tbody> 
         </table><br/><br/><br/>          
-        <div class="text-center invoice-btn">
-          <%= f.submit 'Apply', :class => 'btn btn-success btn-lg' %>
-        </div>
+        <!-- <div class="text-center invoice-btn">
+          <%#= f.submit 'Apply', :class => 'btn btn-success btn-lg' %>
+        </div> -->
       </div>
     </div>
   </div>

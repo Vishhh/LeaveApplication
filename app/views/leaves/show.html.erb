@@ -25,25 +25,24 @@
 <p>
   <div class ="text-center">
     <strong>Calculated days of leave</strong>
-    <h2><%= (@leave.leave_to - @leave.leave_from).to_i %></h2><br/><br/><br/>
+    <%if @leave.halfday == true %>
+      <h2><%= (@leave.leave_to - @leave.leave_from ).to_f + 0.5 %></h2><br/><br/><br/>
+    <%else%>
+      <h2><%= (@leave.leave_to - @leave.leave_from ).to_i %></h2><br/><br/><br/>
+    <%end%>
       <%if current_user %>
-
         <%= form_for @leave, url: {action: "approve"} do  |leave|%>
-         <div class="btn ">
-        <%= leave.submit "Approve",:class => "btn btn-success btn-xs", :value => 'Approve'%>
-        </div>
+          <div class="btn ">
+            <%= leave.submit "Approve",:class => "btn btn-success btn-xs", :value => 'Approve'%>
+          </div>
         <% end %>
-
       <%end%>
-
       <%if current_user %>
-
         <%= form_for @leave, url: {action: "reject"} do  |leave|%>
-        <div class="btn ">
-        <%= leave.submit "Reject",:class => "btn btn-danger btn-xs", :value => 'Reject'%>
-        </div>
-        <% end %>
-        
+          <div class="btn ">
+            <%= leave.submit "Reject",:class => "btn btn-danger btn-xs", :value => 'Reject'%>
+          </div>
+        <% end %> 
       <%end%>
     <%= link_to "back", leaves_path%>
   </div>

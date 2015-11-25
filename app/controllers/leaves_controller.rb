@@ -77,6 +77,6 @@ class LeavesController < ApplicationController
 
   private
   def leave_params
-    params.require(:leave).permit(:leave_from,:status,:total, :leave_to, :task, :approved)
+    params.require(:leave).permit(:leave_from,:status,:total, :leave_to, :task, :approved, :halfday)
   end
 end
