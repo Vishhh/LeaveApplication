@@ -16,7 +16,6 @@
               <th>Description</th>
               <th></th>
               <th></th>
-              <th></th>
             </tr>
           </thead>
           <tbody id="tbody">
@@ -31,19 +30,20 @@
                 <%= f.input :leave_to, :class => 'form-control'%>
               </td>
               <td>
-              <%= form_for @leave do |leave|%>
-                <h3><%= leave.check_box :halfday %><br/>
-                <div class="text-center invoice-btn">
-                <%= leave.submit "Apply" %></h3>
-                </div>
-              <% end %>
+              
               </td>
             </tr>
           </tbody> 
-        </table><br/><br/><br/>          
-        <!-- <div class="text-center invoice-btn">
-          <%#= f.submit 'Apply', :class => 'btn btn-success btn-lg' %>
-        </div> -->
+        </table><br/><br/><br/> 
+        <%= form_for @leave do |leave|%>
+          <div class="text-center invoice-btn">
+          <h3><%= leave.check_box :halfday %><br/>
+          <%= leave.submit "Halfday ", :class => 'btn btn-success btn-lg' %></h3>
+          </div>
+        <% end %><br/><br/>         
+        <div class="text-center invoice-btn">
+          <%= f.submit 'Apply', :class => 'btn btn-success btn-lg' %>
+        </div> 
       </div>
     </div>
   </div>
