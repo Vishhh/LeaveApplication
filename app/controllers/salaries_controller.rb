@@ -12,9 +12,10 @@ class SalariesController < ApplicationController
 		@salary = Salary.new(salary_params)
 		@employees = Employee.all
 		@salary.save
+		
+		@employees.each do |employee|
 		month_leave = 0
 		amount = 0
-		@employees.each do |employee|
 			employee.leaves.each do |leave|
 				if leave.status == "Approve"
 				month_leave =  month_leave + leave.get_leave_duration_for_month(@salary.year ,@salary.month)	
