@@ -18,7 +18,9 @@ class Employee < ActiveRecord::Base
 	# 		end
 	# 	month_leave
 	# end
-
+	extend FriendlyId
+  friendly_id :name, use: :slugged
+	
 	def total_leave
 		total_leave = 0
 		self.leaves.each do |leave|
