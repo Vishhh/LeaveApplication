@@ -8,7 +8,10 @@ class Employee < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
   validates :name, presence: true
-  validates :salary, presence: true       
+  validates :salary, presence: true   
+
+  has_attached_file :avatar, styles: { medium: "300x300>", thumb: "100x100>" }, default_url: "/images/:style/missing.png"
+  validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\Z/    
 
 	# def get_employee_month_leave(year, month)
 	# 	month_leave = 0
