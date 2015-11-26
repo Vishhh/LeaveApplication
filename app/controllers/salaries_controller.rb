@@ -10,27 +10,10 @@ class SalariesController < ApplicationController
 
 	def create
 		@salary = Salary.new(salary_params)
-		@employees = Employee.all
-		@salary.save
+		@salary = @salary.final_amount
 		
-		@employees.each do |employee|
-		month_leave = 0
-		amount = 0
-			employee.leaves.each do |leave|
-				if leave.status == "Approve"
-				month_leave =  month_leave + leave.get_leave_duration_for_month(@salary.year ,@salary.month)	
-				end
-			end # debugger
-			amount = (employee.salary / @salary.working_days)*( @salary.working_days - month_leave.to_f )
-			@item = Item.new(employee_salary: employee.salary, employee_name: employee.name, employee_id: employee.id, amount: amount, salary_month: @salary.month, salary_id: @salary.id)
-			@item.save
-		end
-		if @salary.save
-			redirect_to salaries_path
-		else
-			redirect_to new_salary_path
-			flash[:alert] = "This Month/Year is already saved!"
-		end
+		redirect_to salaries_path
+
 	end
 
 	def edit
