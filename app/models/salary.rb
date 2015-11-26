@@ -5,12 +5,12 @@ class Salary < ActiveRecord::Base
 
 	validates :month, :uniqueness => { :scope => :year,
     :message => "should happen once per year" }
-	# extend FriendlyId
- #  friendly_id :salary_date, use: :slugged
+# extend FriendlyId
+#  friendly_id :salary_date, use: :slugged
 
- #  def salary_date
- #  "#{month} #{year}"
-	# end 
+#  def salary_date
+#  "#{month} #{year}"
+# end 
 
 	def generate_salary_number(user)
     exiting_salary_count = Salary.count
@@ -25,20 +25,18 @@ class Salary < ActiveRecord::Base
 		amount
 	end
 
-	# def self.monthly_salary
-	# 	one_day_salary = 0
-	# 	employee_working_days = 0 
-	# 	one_month_salary = 0
-	# 	month_leave = 0
-
-	# 	@employees.each do |employee|
-	# 		employee.leaves.each do |leave|
-	# 			month_leave =  month_leave + leave.get_leave_duration_for_month(@salary.year ,@salary.month)	
-	# 		end
-	# 		debugger
-	# 		one_day_salary=	(employee.salary / @salary.working_days)			
-	# 		employee_working_days = @salary.working_days - month_leave
-	# 		one_month_salary = employee_working_days*one_day_salary
-	# 	end
-	# end
+	def final_amount
+		@employees = Employee.all
+		@employees.each do |employee|
+			month_leave = 0
+			amount = 0
+				employee.leaves.where(:status => "Approve").each do |leave|			
+				month_leave =  month_leave + leave.get_leave_duration_for_month(self.year ,self.month).to_f	
+				end  
+			amount = (employee.salary.to_f / self.working_days.to_f)*( self.working_days.to_f - month_leave.to_f )
+			self.save
+			@item = Item.new( employee_id: employee.id, amount: amount, salary_id: self.id)
+			@item.save	
+		end
+	end
 end
