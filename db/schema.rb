@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151126063227) do
+ActiveRecord::Schema.define(version: 20151126104455) do
 
   create_table "employees", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -76,8 +76,8 @@ ActiveRecord::Schema.define(version: 20151126063227) do
   end
 
   create_table "items", force: :cascade do |t|
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
     t.integer  "employee_id"
     t.integer  "user_id"
     t.float    "amount"
@@ -85,6 +85,7 @@ ActiveRecord::Schema.define(version: 20151126063227) do
     t.string   "employee_name"
     t.string   "salary_month"
     t.string   "slug"
+    t.string   "employee_salary"
   end
 
   create_table "leaves", force: :cascade do |t|

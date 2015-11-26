@@ -1,28 +1,30 @@
 <div class ="col-md-10">
   <table class="display table table-bordered table-striped">
     <thead>
-      <tr>
-        <th>Salary Id</th>
-        <th>Salary Month</th>
+      <tr> 
         <th>Employee Name </th>
+        <th>Employee Working days</th>
         <th>Efective Salary</th>
       </tr>
-    </thead> 
-    <tbody><% final_amount = 0%>
+    </thead>
+
+    <tbody>
+      <% final_amount = 0%>
       <% @items.each do |item| %>
       <tr>
       <% if current_user%>
         <% if item.salary_id == @salary.id %>
-          <td><%= item.salary_id %></td>
-          <td><%= item.salary_month %></td>
           <td><%= item.employee_name %></td>
+          <td><%= (item.amount.to_f*@salary.working_days.to_f).round(2)/item.employee_salary.to_f.round(2) %></td>
           <td><%= item.amount.round(2) %></td>
-           <% final_amount = final_amount + item.amount.round(2)%>
+          <% final_amount = final_amount + item.amount.round(2)%>
         <%end%>     
       <%end%> 
       </tr>
       <% end %>
-      <h3>Payable Amount: <%= final_amount %></h3>
+      <h4>Payable Amount: <%= final_amount %></h4>
+      <h4>Working Days <%= @salary.working_days%></h4>
+      <h4>Date: <%= @salary.month%> <%= @salary.year%></h4><br/>
     </tbody>
   </table>
 </div>
