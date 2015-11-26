@@ -2,6 +2,12 @@ class Salary < ActiveRecord::Base
 	belongs_to :user
 	belongs_to :employee
 	has_many :items
+	extend FriendlyId
+  friendly_id :salary_date, use: :slugged
+
+  def salary_date
+  "#{month} #{year}"
+	end 
 
 	def generate_salary_number(user)
     exiting_salary_count = Salary.count
