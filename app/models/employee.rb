@@ -4,6 +4,7 @@ class Employee < ActiveRecord::Base
 	has_many :leaves 
 	has_many :holidays
 	has_many :salaries
+	has_many :items
 	belongs_to :user
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
