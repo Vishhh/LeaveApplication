@@ -20,6 +20,7 @@
 				<th>Month</th>
 				<th>Year</th>
 				<th>Working Days</th>
+				<th>Action</th>
 			</tr>
 		</thead> 
 		<tbody>
@@ -28,6 +29,9 @@
 				<td><%= salary.month %></td>
 				<td><%= salary.year %></td>
 				<td><%= salary.working_days %></td>
+				<td><%= link_to salary_path(salary), :class => "btn btn-primary btn-xs" do %>
+			  <i class="fa fa-folder"></i> View
+			<% end %></td>
 			</tr>
 			<% end %>
 		</tbody>
