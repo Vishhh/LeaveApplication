@@ -1,4 +1,14 @@
+
 <%= simple_form_for @salary do |f| %>
+
+<% if @salary.errors.any? %>
+  <ul>
+    <% @salary.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  </ul>
+<% end %>
+
 <section>
   <div class= "col-md-10">
     <div class="panel panel-primary">

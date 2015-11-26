@@ -20,6 +20,7 @@
 			<% @leaves.each do |leave| %>
 			<tr>
 				<% if current_user %>
+				<%debugger%>
 				<td><%= leave.employee.name %></td>
 				<% end%>
 				<td><%= leave.leave_from %></td>

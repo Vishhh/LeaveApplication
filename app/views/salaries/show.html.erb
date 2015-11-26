@@ -11,11 +11,11 @@
     <tbody>
       <% final_amount = 0%>
       <% @items.each do |item| %>
-      <tr>
+      <tr><%# debugger%>
       <% if current_user%>
         <% if item.salary_id == @salary.id %>
-          <td><%= item.employee_name %></td>
-          <td><%= (item.amount.to_f*@salary.working_days.to_f).round(2)/item.employee_salary.to_f.round(2) %></td>
+          <td><%= item.employee.name %></td>
+          <td><%= (item.amount.to_f*@salary.working_days.to_f).round(2)/item.employee.salary.to_f.round(2) %></td>
           <td><%= item.amount.round(2) %></td>
           <% final_amount = final_amount + item.amount.round(2)%>
         <%end%>     
