@@ -26,6 +26,8 @@ class SalariesController < ApplicationController
 		end
 		if @salary.save
 			redirect_to salaries_path
+		else
+			redirect_to new_salary_path
 		end
 	end
 
@@ -45,6 +47,7 @@ class SalariesController < ApplicationController
 
 	def show
 		@salary = Salary.find(params[:id])
+		@items = Item.all
 	end
 
 	private
