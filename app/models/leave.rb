@@ -18,13 +18,13 @@ class Leave < ActiveRecord::Base
 	end
 
 	def get_leave_duration_for_month(month, year)
-		# debugger
+		 # debugger
 		if self.halfday == true
 			  # debugger
 		  if self.leave_from >= at_beginning_of_month and self.leave_to <= at_end_of_month
 		      -((leave_from - leave_to ).to_f - 0.5)
 		  elsif self.leave_from >= at_beginning_of_month and self.leave_to > at_end_of_month
-		  	debugger
+		  	# debugger
 		      ((at_end_of_month + 1.day) - leave_from ).to_f + 0.5
 		  elsif self.leave_from < at_beginning_of_month and self.leave_to >= at_beginning_of_month
 		      (leave_to -(at_beginning_of_month - 1.day )).to_f - 0.5
