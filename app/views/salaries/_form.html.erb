@@ -30,17 +30,14 @@
           </thead>
           <tbody id="tbody">
             <tr>
-              <td>
-                <%= f.text_field :month, :class => 'form-control'%>       
+              <td><%= select_month(Date.today, {}, name: 'salary[month]')%>    
               </td>
               <td>
-                <%= f.text_field :year, :class => 'form-control'%>       
+                <%= f.select :year, Date.today.year.. 8.years.from_now.year %>      
               </td>
               <td>
-                <%= f.input :working_days, :class => 'form-control'%>       
-              </td>
-              
-              
+                <%= f.input :working_days, :class => 'form-control'%>
+              </td> 
             </tr>
           </tbody> 
         </table><br/><br/><br/>          
