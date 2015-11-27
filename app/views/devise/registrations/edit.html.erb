@@ -10,13 +10,7 @@
     
 
     <div class="col-md-10">
-        <div class="form-group">
-            <%= f.text_field :name, :class => 'form-control', :placeholder => 'Your Name', autofocus: true %>
-        </div>
 
-        <div class="form-group">
-        <%= f.email_field :email, :class => 'form-control', :placeholder => 'Your Email' %>
-        </div>
 
         <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
         <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
