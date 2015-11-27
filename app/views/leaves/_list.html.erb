@@ -20,7 +20,7 @@
 			<% @leaves.each do |leave| %>
 			<tr>
 				<% if current_user %>
-				<%debugger%>
+				<%#debugger%>
 				<td><%= leave.employee.name %></td>
 				<% end%>
 				<td><%= leave.leave_from %></td>
@@ -37,22 +37,21 @@
 				</div>
 				<%end%>
 				</td>
-				
-		<td>
-			<%= link_to leave_path(leave), :class => "btn btn-primary btn-xs" do %>
-			  <i class="fa fa-folder"></i> View
-			<% end %>
-			<% if current_user %>
-				<%= link_to edit_leave_path(leave), :class => "btn btn-info btn-xs" do %><i class="fa fa-pencil"></i> Edit
-				<% end %><td>
-				<%= form_for leave, url:  approve_leave_path(leave)  do  |f|%>
-					<%= f.submit "Approve",:class => "btn btn-success btn-xs", :value => 'Approve'%>
-				<% end %></td><td>
-				<%= form_for leave,  url:  reject_leave_path(leave) do  |t|%>
-					<%= t.submit "Reject",:class => "btn btn-danger btn-xs", :value => 'Reject'%>
-				<% end %></td>
-			<%end%>
-		</td>
+				<td>
+					<%= link_to leave_path(leave), :class => "btn btn-primary btn-xs" do %>
+					  <i class="fa fa-folder"></i> View
+					<% end %>
+					<% if current_user %>
+						<%= link_to edit_leave_path(leave), :class => "btn btn-info btn-xs" do %><i class="fa fa-pencil"></i> Edit
+						<% end %><td>
+						<%= form_for leave, url:  approve_leave_path(leave)  do  |f|%>
+							<%= f.submit "Approve",:class => "btn btn-success btn-xs", :value => 'Approve'%>
+						<% end %></td><td>
+						<%= form_for leave,  url:  reject_leave_path(leave) do  |t|%>
+							<%= t.submit "Reject",:class => "btn btn-danger btn-xs", :value => 'Reject'%>
+						<% end %></td>
+					<%end%>
+				</td>
 </tr><% end %>
 		</tbody>
 	</table>
