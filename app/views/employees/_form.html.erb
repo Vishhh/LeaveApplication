@@ -8,8 +8,15 @@
             <tr>
               <th>Name</th>
               <th>Email</th>
-              <th>password</th>
-              <th>salary</th>
+              <%if current_user%>
+              <th>Password</th>
+              <th>Salary</th>
+              <%end%>
+              
+              <th>Primary No</th>
+              <th>Secondary No</th>
+              <th>Local Address</th>
+              <th>Permanent Address</th>
             </tr>
           </thead>
           <tbody id="tbody">
@@ -20,11 +27,26 @@
               <td>
                 <%= f.text_field :email, :class => 'form-control'%>       
               </td>
+               <%if current_user%>
               <td>
                 <%= f.password_field :password, :class => 'form-control'%>       
               </td>
               <td>
                 <%= f.text_field :salary, :class => 'form-control'%>       
+              </td>
+              <%end%>
+              
+              <td>
+                <%= f.text_field :mobile_no1, :class => 'form-control'%>       
+              </td>
+              <td>
+                <%= f.text_field :mobile_no2, :class => 'form-control'%>       
+              </td>
+              <td>
+                <%= f.text_field :local_address, :class => 'form-control'%>       
+              </td>
+              <td>
+                <%= f.text_field :permanent_address, :class => 'form-control'%>       
               </td>
             </tr>
           </tbody> 
