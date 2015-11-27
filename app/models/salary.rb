@@ -33,14 +33,16 @@ class Salary < ActiveRecord::Base
 		@employees.each do |employee|
 			month_leave = 0
 			amount = 0
-			debugger
+		
 				employee.leaves.where(:status => "Approve").each do |leave|			
 				month_leave =  month_leave + leave.get_leave_duration_for_month(self.year ,self.month).to_f	
 				end  
-amount = (employee.salary.to_f / self.working_days.to_f)*( self.working_days.to_f - month_leave.to_f )
-			if self.save
+				
+				amount = (employee.salary.to_f / self.working_days.to_f)*( self.working_days.to_f - month_leave.to_f )
+			 
 				@item = Item.new( employee_id: employee.id, amount: amount, salary_id: self.id)
 				@item.save
+			if self.save
 			else
 			end
 		end
