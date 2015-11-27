@@ -38,7 +38,7 @@
           <b class="caret"></b></a>
           <ul class="dropdown-menu extended logout">
           <div class="log-arrow-up"></div>
-            <li><%= link_to(edit_employee_registration_path(current_employee.id)) do %>
+            <li><%= link_to(edit_employee_path(current_employee.id)) do %>
               <i class="fa fa-cog"></i> Setting<% end %>
             </li>
             <li><%= link_to('Logout', destroy_employee_session_path, :method => :delete) %>
