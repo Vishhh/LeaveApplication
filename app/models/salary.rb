@@ -5,6 +5,9 @@ class Salary < ActiveRecord::Base
 
 	validates :month, :uniqueness => { :scope => :year,
     :message => "should happen once per year" }
+  # validates :working_days, :numericality => { :less_than_or_equal_to => 31 && :greater_than_or_equal_to => 1 }, :presence => true
+   validates :working_days, :inclusion => { :in => 1..31 }
+  
 # extend FriendlyId
 #  friendly_id :salary_date, use: :slugged
 
@@ -34,9 +37,13 @@ class Salary < ActiveRecord::Base
 				month_leave =  month_leave + leave.get_leave_duration_for_month(self.year ,self.month).to_f	
 				end  
 			amount = (employee.salary.to_f / self.working_days.to_f)*( self.working_days.to_f - month_leave.to_f )
-			self.save
-			@item = Item.new( employee_id: employee.id, amount: amount, salary_id: self.id)
-			@item.save	
+			if self.save
+				@item = Item.new( employee_id: employee.id, amount: amount, salary_id: self.id)
+				@item.save
+				return true
+			else
+				return false
+			end
 		end
 	end
 end

@@ -9,13 +9,14 @@ class Employee < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
   validates :name, presence: true
-  validates :salary, presence: true   
+  validates :salary, presence: true  
+  validates :email, presence: true  
 
   has_attached_file :avatar, styles: { medium: "300x300>", thumb: "100x100>" }, default_url: "/images/:style/missing.png"
   validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\Z/    
 
-	extend FriendlyId
-  friendly_id :name, use: :slugged
+	# extend FriendlyId
+ #  friendly_id :name, use: :slugged
 	
 	def total_leave
 		total_leave = 0
