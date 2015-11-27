@@ -30,8 +30,7 @@
             </li>
           </ul>
         </li>
-      <%end%>
-      <% if employee_signed_in? %>
+        <% elsif employee_signed_in? %>
         <li class="dropdown">          
           <a data-toggle="dropdown" class="dropdown-toggle current_user_nav" href="#">
           <span class="username"><%= current_employee.email %></span>
