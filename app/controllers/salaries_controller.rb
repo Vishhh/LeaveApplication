@@ -11,9 +11,11 @@ class SalariesController < ApplicationController
 	def create
 		@salary = Salary.new(salary_params)
 		@salary = @salary.final_amount
-		
-		redirect_to salaries_path
-
+		if @salary == true
+			redirect_to salaries_path
+		else
+			render 'new'
+		end
 	end
 
 	def edit
