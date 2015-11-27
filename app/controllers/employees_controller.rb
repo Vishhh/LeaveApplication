@@ -11,6 +11,7 @@ class EmployeesController < ApplicationController
 
 	def new
 		@employee= Employee.new
+
 	end
 	def show
 		@employee = Employee.find(params[:id])
@@ -19,9 +20,9 @@ class EmployeesController < ApplicationController
 		@employee = Employee.find(params[:id])
 	end
   def update
-  @employee = Employee.find(params[:id])
-	  if @employee.update
-	    redirect_to @employee
+  	@employee = Employee.find(params[:id])
+	  if @employee.update(employee_params)
+	    redirect_to employees_path
 	  else
 	    render 'edit'
 	  end 
@@ -29,6 +30,6 @@ class EmployeesController < ApplicationController
 
   private
   def employee_params
-		params.require(:employee).permit(:email, :password, :name, :salary, :avatar)
+		params.require(:employee).permit(:email, :password, :name, :salary, :avatar, :mobile_no1, :mobile_no2, :local_address, :permanent_address)
   end 
 end
