@@ -14,7 +14,7 @@ class SalariesController < ApplicationController
 		if @salary == true
 			redirect_to salaries_path
 		else
-			render 'new'
+			redirect_to new_salary_path
 		end
 	end
 
@@ -24,7 +24,7 @@ class SalariesController < ApplicationController
 
 	def update
 		@salary = Salary.find(params[:id])
-		@salary.update
+		@salary.update(salary_params)
 	end
 
 	def destroy
