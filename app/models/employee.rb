@@ -14,14 +14,6 @@ class Employee < ActiveRecord::Base
   has_attached_file :avatar, styles: { medium: "300x300>", thumb: "100x100>" }, default_url: "/images/:style/missing.png"
   validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\Z/    
 
-	# def get_employee_month_leave(year, month)
-	# 	month_leave = 0
-	# 	# self.leaves.where("strftime('%Y', leaves.leave_from) = ? AND strftime('%m', leaves.leave_from) + 0 = ?", year, month)
-	# 		self.leaves.each do |leave|
-	# 			month_leave =  month_leave + leave.get_leave_duration_for_month()
-	# 		end
-	# 	month_leave
-	# end
 	extend FriendlyId
   friendly_id :name, use: :slugged
 	
