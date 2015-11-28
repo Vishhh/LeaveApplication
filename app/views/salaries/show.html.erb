@@ -11,8 +11,9 @@
     <tbody>
       <% final_amount = 0%>
       <% @items.each do |item| %>
-      <tr><%# debugger%>
+      <tr>
       <% if current_user%>
+      <%#debugger%>
         <% if item.salary_id == @salary.id %>
           <td><%= item.employee.name %></td>
           <td><%= (item.amount.to_f*@salary.working_days.to_f).round(2)/item.employee.salary.to_f.round(2) %></td>
@@ -24,7 +25,7 @@
       <% end %>
       <h4>Payable Amount: <%= final_amount %></h4>
       <h4>Working Days <%= @salary.working_days%></h4>
-      <h4>Date: <%= @salary.month%> <%= @salary.year%></h4><br/>
+      <h4>Date: <%= @salary.month%> /<%= @salary.year%></h4><br/>
     </tbody>
   </table>
 </div>

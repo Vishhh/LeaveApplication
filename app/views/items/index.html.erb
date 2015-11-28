@@ -2,7 +2,6 @@
 	<table class="display table table-bordered table-striped">
 		<thead>
 			<tr>
-				<th>Salary Id</th>
 				<th>Salary Month</th>
 				<th>Employee Id </th>
 				<th>Employee Name </th>
@@ -12,22 +11,21 @@
 		<tbody>
 			<% @items.each do |item| %>
 			<tr>
-			<%if current_employee%>
-			<% if item.employee_id == current_employee.id %>
-				<td><%= item.salary_id %></td>
-				<td><%= item.salary.month %></td>
-				<td><%= item.employee_id %></td>
-				<td><%= item.employee.name %></td>
-				<td><%= item.amount %></td>
-			<%end%>	
-			<%end%>
-			<% if current_user%>
-				<td><%= item.salary_id %></td>
-				<td><%= item.salary.month %></td>
-				<td><%= item.employee_id %></td>
-				<td><%= item.employee.name %></td>
-				<td><%= item.amount.round(2) %></td>
-			<%end%>	
+				<%if current_employee%>
+					<% if item.employee_id == current_employee.id %>
+					
+						<td><%= item.salary.month %></td>
+						<td><%= item.employee_id %></td>
+						<td><%= item.employee.name %></td>
+						<td><%= item.amount.round(2) %></td>
+					<%end%>	
+				<%end%>
+				<% if current_user%>
+					<td><%= item.salary.month %></td>
+					<td><%= item.employee_id %></td>
+					<td><%= item.employee.name %></td>
+					<td><%= item.amount.round(2) %></td>
+				<%end%>	
 			</tr>
 			<% end %>
 		</tbody>
