@@ -1,11 +1,6 @@
 class ChangeIntegerFormatInSalary < ActiveRecord::Migration
-  def up
-   change_column :salaries, :month, :integer
-   change_column :salaries, :year, :integer
-  end
-
-  def down
-   change_column :salaries, :month, :string
-   change_column :salaries, :year, :string
+  def change
+   	change_column :salaries, :month, 'integer USING CAST(month AS integer)'
+   	change_column :salaries, :year, 'integer USING CAST(year AS integer)'
   end
 end
