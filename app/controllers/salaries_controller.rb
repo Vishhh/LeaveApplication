@@ -11,9 +11,11 @@ class SalariesController < ApplicationController
 	def create
 		@salary = Salary.new(salary_params)
 		@salary = @salary.final_amount
+		
 		if @salary == true
 			redirect_to salaries_path
 		else
+			flash[:alert] = "Something went wrong!"
 			redirect_to new_salary_path
 		end
 	end
